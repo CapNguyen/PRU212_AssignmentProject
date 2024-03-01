@@ -21,16 +21,12 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float yRandom = 0;
+        float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
         if(xRandom != spawnArea.x || xRandom != -spawnArea.x)
         {
             int rdNum = Random.Range(0, 1);
             yRandom = rdNum == 1 ? spawnArea.y : -spawnArea.y;
-        }
-        else
-        {
-            yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         }
         Vector3 spawnPosition = new Vector3(xRandom,yRandom,0);
         spawnPosition += player.transform.position;
