@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private int hp = 4;
+    [SerializeField] private int damage = 5;
+    private PlayerHealth playerHealth;
     private GameObject player;
     private Animator anim;
     private Rigidbody2D rb;
@@ -18,7 +20,6 @@ public class Enemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        player = playerTransform.gameObject;
     }
 
     private void Update()
@@ -31,6 +32,12 @@ public class Enemy : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void SetTarget(GameObject _player)
+    {
+        this.player = _player;
+        this.playerTransform = _player.transform;
     }
 
     private void Flip()
@@ -55,7 +62,11 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attack!");
+        if(playerHealth == null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>(); 
+        }
+        playerHealth.TakeDamage(damage);
     }
 
     public void TakeDamage(int dmg)

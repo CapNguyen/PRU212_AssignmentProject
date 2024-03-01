@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
     private float timer;
 
     [SerializeField] private GameObject whipAttack;
-    [SerializeField] private Vector2 whipAttackSize = new Vector2(4,2);
+    [SerializeField] private Vector2 whipAttackSize = new Vector2(2,2);
     [SerializeField] private int whipDamage;
 
     void Update()
