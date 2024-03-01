@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 {
     [Header("Movement Info")]
     [SerializeField] private float speed;
-    private Vector2 movement;
+    [HideInInspector]
+    public Vector2 movement;
     private bool facingRight = true;
     private float xInput;
 
