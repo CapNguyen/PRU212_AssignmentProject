@@ -33,5 +33,6 @@ public class EnemyManager : MonoBehaviour
         GameObject enemySpawn = Instantiate(enemyPrefab);
         enemySpawn.transform.position = spawnPosition;
         enemySpawn.GetComponent<Enemy>().SetTarget(player);
+        enemySpawn.transform.parent = transform;
     }
 }

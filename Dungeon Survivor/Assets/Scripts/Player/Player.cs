@@ -1,7 +1,3 @@
-using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,8 +5,10 @@ public class Player : MonoBehaviour
     [Header("Movement Info")]
     [SerializeField] private float speed;
     [HideInInspector]
+
     public Vector2 movement;
-    private bool facingRight = true;
+    public float lastHorizontalMove;
+    public float lastVerticalMove;
     private float xInput;
 
     private Animator anim;
@@ -27,7 +25,6 @@ public class Player : MonoBehaviour
     {
         AnimatorController();
         MovementController();
-        FlipController();
     }
 
     private void AnimatorController()
@@ -35,28 +32,20 @@ public class Player : MonoBehaviour
         anim.SetFloat("xVelocity", xInput);
     }
 
-    private void FlipController()
-    {
-        if(facingRight && rb.velocity.x < 0)
-        {
-            Flip();
-        }else if(!facingRight && rb.velocity.x > 0)
-        {
-            Flip();
-        }
-    }
-
-    private void Flip()
-    {
-        transform.Rotate(0,180,0);
-        facingRight = !facingRight;
-    }
-
     private void MovementController()
     {
         xInput = Input.GetAxisRaw("Horizontal");
         movement.x = xInput;
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if(movement.x != 0)
+        {
+            lastHorizontalMove = movement.x;
+        }
+        if(movement.y != 0)
+        {
+            lastVerticalMove = movement.y;
+        }
 
         rb.velocity = movement * speed;
     }

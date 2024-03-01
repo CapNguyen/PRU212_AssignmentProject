@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private float speed;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private int hp = 4;
     [SerializeField] private int damage = 5;
-    private PlayerHealth playerHealth;
+    [SerializeField] private int experience_reward = 400;
+
+    private PlayerManager playerHealth;
     private GameObject player;
     private Animator anim;
     private Rigidbody2D rb;
@@ -64,7 +66,7 @@ public class Enemy : MonoBehaviour
     {
         if(playerHealth == null)
         {
-            playerHealth = player.GetComponent<PlayerHealth>(); 
+            playerHealth = player.GetComponent<PlayerManager>(); 
         }
         playerHealth.TakeDamage(damage);
     }
@@ -73,7 +75,10 @@ public class Enemy : MonoBehaviour
     {
         hp -= dmg;
 
-        if (hp < 0)
+        if (hp < 1)
+        {
+            player.GetComponent<Level>().AddExperience(experience_reward);
             Destroy(gameObject);
+        }
     }
 }
