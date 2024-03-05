@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 1000;
     [SerializeField] private int currentHealth = 1000;
+    [SerializeField] public int armor = 0;
     [SerializeField] private HealthBar playerHealth;
 
     [HideInInspector] public Level level;
@@ -23,6 +25,8 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        ApplyArmor(ref damage);
+
         currentHealth -= damage;
 
         if(currentHealth <= 0)
@@ -30,6 +34,12 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Player is dead");
         }
         playerHealth.SetStatus(currentHealth, maxHealth);
+    }
+
+    private void ApplyArmor(ref int damage)
+    {
+        damage -= armor;
+        if(damage < 0) { damage = 0; }
     }
 
     public void Health(int amount)

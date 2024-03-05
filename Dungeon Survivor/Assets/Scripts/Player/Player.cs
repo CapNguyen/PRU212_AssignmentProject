@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         movement = new Vector2();
     }
+    private void Start()
+    {
+        lastHorizontalMove = -1f;
+        lastVerticalMove = 1f;
+    }
 
     void Update()
     {
