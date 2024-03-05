@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowingAxeWeapon : MonoBehaviour
+public class ThrowingAxeWeapon : WeaponBase
 {
-    [SerializeField] float timeToAttack;
-    float timer;
     [SerializeField] GameObject axePrefab;
     Player player;
     private void Awake()
@@ -14,19 +12,9 @@ public class ThrowingAxeWeapon : MonoBehaviour
         player = GetComponentInParent<Player>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(timer < timeToAttack)
-        {
-            timer += Time.deltaTime;
-            return;
-        }
-        timer = 0;
-        SpawnAxe();
-    }
 
-    private void SpawnAxe()
+
+    public override void Attack()
     {
         GameObject throwingAxe = Instantiate(axePrefab);
         throwingAxe.transform.position = transform.position;
