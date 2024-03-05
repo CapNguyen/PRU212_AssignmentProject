@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Vector2 spawnArea;
     [SerializeField] private float spawnCooldown;
@@ -18,7 +18,10 @@ public class EnemyManager : MonoBehaviour
             SpawnEnemy();
         }
     }
-
+    private void Start()
+    {
+        player = GameManager.instance.playerTranform.gameObject;
+    }
     private void SpawnEnemy()
     {
         float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
