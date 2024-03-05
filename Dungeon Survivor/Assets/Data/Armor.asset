@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb00c9657aa0b464b820000e529e67a1, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  name: 
-  armor: 0
+  name: Armor
+  armor: 5

@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] public Level level;
     [HideInInspector] public Coins coins;
+    private bool isDead;
+
     private void Awake()
     {
         level = GetComponent<Level>();
@@ -25,13 +27,16 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(isDead) return;
         ApplyArmor(ref damage);
 
         currentHealth -= damage;
 
         if(currentHealth <= 0)
         {
-            Debug.Log("Player is dead");
+            Debug.Log("Chet roi");
+            GetComponent<GameOver>().PlayerGameOver();
+            isDead = true;
         }
         playerHealth.SetStatus(currentHealth, maxHealth);
     }
