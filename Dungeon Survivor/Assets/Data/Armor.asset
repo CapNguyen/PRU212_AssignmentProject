@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Armor
   m_EditorClassIdentifier: 
   name: Armor
-  armor: 5
+  armor: 0
