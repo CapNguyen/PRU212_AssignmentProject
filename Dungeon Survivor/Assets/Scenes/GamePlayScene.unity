@@ -2525,6 +2525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceBar: {fileID: 1753016637}
+  upgradePanelManager: {fileID: 1260516606}
 --- !u!114 &450294803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7683,6 +7684,7 @@ GameObject:
   - component: {fileID: 1260516602}
   - component: {fileID: 1260516604}
   - component: {fileID: 1260516605}
+  - component: {fileID: 1260516606}
   m_Layer: 0
   m_Name: -----GameManager-----
   m_TagString: Untagged
@@ -7743,6 +7745,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08eb28c0ed239e341b14bc0aee03e1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1260516606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260516601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c1b4fb571e1b74ca5cbdb8afa8b3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1566848971}
 --- !u!1001 &1266364998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11151,7 +11166,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912476751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1260516606}
+        m_TargetAssemblyTypeName: UpgradePanelManager, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912476751
 MonoBehaviour:
   m_ObjectHideFlags: 0
