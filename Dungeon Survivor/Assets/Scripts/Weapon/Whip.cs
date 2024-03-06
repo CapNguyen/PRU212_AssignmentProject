@@ -26,6 +26,7 @@ public class Whip : WeaponBase
             IDamageable enemy = hit[i].GetComponent<IDamageable>();
             if (enemy != null)
             {
+                PostDamage(WeaponStats.damage, hit[i].transform.position);
                 enemy.TakeDamage(WeaponStats.damage);
             }
         }
