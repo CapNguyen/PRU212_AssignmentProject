@@ -10,6 +10,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public int armor = 0;
     [SerializeField] private HealthBar playerHealth;
 
+    public float hpRegenerationRate = 1f;
+    public float hpRegenerationTimer;
+
     [HideInInspector] public Level level;
     [HideInInspector] public Coins coins;
     private bool isDead;
@@ -23,6 +26,16 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         playerHealth.SetStatus(currentHealth, maxHealth);
+    }
+
+    private void Update()
+    {
+        hpRegenerationTimer += Time.deltaTime * hpRegenerationRate;
+        if(hpRegenerationTimer > 1f)
+        {
+            Health(1);
+            hpRegenerationTimer -= 1f;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -56,7 +69,7 @@ public class PlayerManager : MonoBehaviour
 
         currentHealth += amount;
 
-        if (currentHealth >= maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }

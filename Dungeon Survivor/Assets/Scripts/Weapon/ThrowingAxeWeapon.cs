@@ -18,6 +18,8 @@ public class ThrowingAxeWeapon : WeaponBase
     {
         GameObject throwingAxe = Instantiate(axePrefab);
         throwingAxe.transform.position = transform.position;
-        throwingAxe.GetComponent<ThrowingAxeProjectile>().setDirection(player.lastHorizontalMove, 0f);
+        ThrowingAxeProjectile throwingAxeProjectile = throwingAxe.GetComponent<ThrowingAxeProjectile>();
+        throwingAxeProjectile.setDirection(player.lastHorizontalMove, 0f);
+        throwingAxeProjectile.dmg = WeaponStats.damage;
     }
 }

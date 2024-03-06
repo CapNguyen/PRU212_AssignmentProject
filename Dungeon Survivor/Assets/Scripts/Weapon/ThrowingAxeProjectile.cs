@@ -6,7 +6,7 @@ public class ThrowingAxeProjectile : MonoBehaviour
 {
     Vector3 direction;
     [SerializeField] float speed;
-    [SerializeField] int dmg = 5;
+    public int dmg = 5;
     public void setDirection(float dir_x, float dir_y)
     {
         direction = new Vector3(dir_x, dir_y);

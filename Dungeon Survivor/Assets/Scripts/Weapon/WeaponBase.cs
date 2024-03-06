@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,6 @@ public abstract class WeaponBase : MonoBehaviour
 {
     public WeaponData WeaponData;
     public WeaponStats WeaponStats;
-    public float timeToAttack;
     float timer;
     public void Update()
     {
@@ -15,13 +15,12 @@ public abstract class WeaponBase : MonoBehaviour
         if (timer < 0f)
         {
             Attack();
-            timer = timeToAttack;
+            timer = WeaponStats.timeToAttack;
         }
     }
     public virtual void SetData(WeaponData wd)
     {
         WeaponData = wd;
-        timeToAttack = WeaponData.stats.timeToAttack;
 
         WeaponStats = new WeaponStats(wd.stats.damage, wd.stats.timeToAttack);
     }
@@ -30,5 +29,10 @@ public abstract class WeaponBase : MonoBehaviour
     public virtual void PostDamage(int damage, Vector3 targetPosition)
     {
         MessageSystem.instance.PostMessage(damage.ToString(), targetPosition);
+    }
+
+    public void Upgrade(UpgradeData upgradeData)
+    {
+        WeaponStats.Sum(upgradeData.weaponUpgradeStats);
     }
 }
