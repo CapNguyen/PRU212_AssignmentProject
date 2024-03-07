@@ -7,6 +7,8 @@ public class ThrowingAxeProjectile : MonoBehaviour
     Vector3 direction;
     [SerializeField] float speed;
     public int dmg = 5;
+    float timeToDelete = 2f;
+
     public void setDirection(float dir_x, float dir_y)
     {
         direction = new Vector3(dir_x, dir_y);
@@ -40,8 +42,12 @@ public class ThrowingAxeProjectile : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+            timeToDelete -= Time.deltaTime;
+            if( timeToDelete < 0)
+            {
+                Destroy(gameObject);
+            }
         }
-
-
     }
 }
