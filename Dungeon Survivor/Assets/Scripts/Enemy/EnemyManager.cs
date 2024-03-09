@@ -8,8 +8,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Vector2 spawnArea;
     [SerializeField] private float spawnCooldown;
-    //private float timer;
-    /*private void Update()
+    private float timer;
+    private void Update()
     {
         timer -= Time.deltaTime;
         if(timer < 0)
@@ -17,12 +17,12 @@ public class EnemyManager : MonoBehaviour
             timer = spawnCooldown;
             SpawnEnemy();
         }
-    }*/
+    }
     private void Start()
     {
         player = GameManager.instance.playerTranform.gameObject;
     }
-    public void SpawnEnemy()
+    private void SpawnEnemy()
     {
         float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
