@@ -211,5 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df601d414bb98a14da21cf01a313c6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemPrefab: {fileID: 1150239527492713037, guid: e97ac4887cd349349a350477e9b52663, type: 3}
-  chance: 0.15
+  dropItemPrefab:
+  - {fileID: 3094717881218644038, guid: 82ef98266d7b51546900847ebcba8332, type: 3}
+  - {fileID: 1150239527492713037, guid: e97ac4887cd349349a350477e9b52663, type: 3}
+  chance: 0.55

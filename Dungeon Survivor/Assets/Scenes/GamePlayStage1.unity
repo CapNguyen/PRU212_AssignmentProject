@@ -1675,7 +1675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c41b449d77c73428bdcbeb9e21b2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   enemyPrefab: {fileID: 1675428681664465801, guid: dd19f6f27ab5b1643a9afe9297a3ff88, type: 3}
   spawnArea: {x: 10, y: 10}
   spawnCooldown: 5
@@ -4196,7 +4195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a40ccf1ff8db124eb1a85b1ec35b1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   playerTilePosition: {x: 0, y: 0}
   tileSize: 20
   terrainTileHorizontalCount: 3
