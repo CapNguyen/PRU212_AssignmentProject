@@ -1069,6 +1069,8 @@ MonoBehaviour:
   upgradePanelManager: {fileID: 1260516606}
   upgrades: []
   acquiredUpgrades: []
+  upgradesAvailableOnStart:
+  - {fileID: 11400000, guid: 86c074142dc60dc4e882921f36590468, type: 2}
 --- !u!114 &450294803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1098,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  armorTest: {fileID: 11400000, guid: ced5f7fc4cfaec843830471d5f82873f, type: 2}
 --- !u!114 &450294805
 MonoBehaviour:
   m_ObjectHideFlags: 0

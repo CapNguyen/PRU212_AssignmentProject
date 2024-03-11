@@ -4267,7 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f926cf26451eb3418e577af22db16e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToComplete: 20
+  timeToComplete: 50
   levelCompletionPanel: {fileID: 0}
 --- !u!1001 &945389791
 PrefabInstance:

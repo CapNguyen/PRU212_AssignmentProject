@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class PassiveItems : MonoBehaviour
 {
     [SerializeField] List<Item> items;
     PlayerManager playerManager;
-    [SerializeField] Item armorTest;
+    public List<UpgradeData> upgradeData;
     private void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -14,7 +15,6 @@ public class PassiveItems : MonoBehaviour
 
     private void Start()
     {
-        Equip(armorTest);
     }
 
     public void Equip(Item itemToEquip)
@@ -23,12 +23,24 @@ public class PassiveItems : MonoBehaviour
         {
             items = new List<Item>();
         }
-        items.Add(itemToEquip);
-        itemToEquip.Equip(playerManager);
+        Item newItemInstance = new Item();
+        newItemInstance.Init(itemToEquip.name);
+        newItemInstance.stats.Sum(itemToEquip.stats);
+
+        items.Add(newItemInstance);
+        newItemInstance.Equip(playerManager);
     }
 
     public void UnEquip(Item itemToUnEquip)
     {
 
+    }
+
+    internal void UpgradeItem(UpgradeData upgradeData)
+    {
+        Item itemToUpgrade = items.Find(id => id.name == upgradeData.item.name);
+        itemToUpgrade.UnEquip(playerManager);
+        itemToUpgrade.stats.Sum(upgradeData.itemStats);
+        itemToUpgrade.Equip(playerManager);
     }
 }
