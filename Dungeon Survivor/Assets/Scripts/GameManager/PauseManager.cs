@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public void Start()
+    {
+        UnPauseGame();
+    }
     public void PauseGame()
     {
         Time.timeScale = 0f;

@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     {
         player = GameManager.instance.playerTranform.gameObject;
     }
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
         float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
