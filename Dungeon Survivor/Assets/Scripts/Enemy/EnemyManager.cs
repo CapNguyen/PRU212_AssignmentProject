@@ -15,14 +15,14 @@ public class EnemyManager : MonoBehaviour
         if(timer < 0)
         {
             timer = spawnCooldown;
-            SpawnEnemy();
+            //SpawnEnemy(enemyToSpawn);
         }
     }
     private void Start()
     {
         player = GameManager.instance.playerTranform.gameObject;
     }
-    public void SpawnEnemy()
+    public void SpawnEnemy(EnemyData enemyToSpawn)
     {
         float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
@@ -32,10 +32,18 @@ public class EnemyManager : MonoBehaviour
             yRandom = rdNum == 1 ? spawnArea.y : -spawnArea.y;
         }
         Vector3 spawnPosition = new Vector3(xRandom,yRandom,0);
+
         spawnPosition += player.transform.position;
+
+        //spawning main object
         GameObject enemySpawn = Instantiate(enemyPrefab);
         enemySpawn.transform.position = spawnPosition;
         enemySpawn.GetComponent<Enemy>().SetTarget(player);
         enemySpawn.transform.parent = transform;
+
+        //spawning sprite
+        GameObject spriteObject = Instantiate(enemyToSpawn.animatedPrefab);
+        spriteObject.transform.parent = enemySpawn.transform;
+        spriteObject.transform.localPosition = Vector3.zero;
     }
 }

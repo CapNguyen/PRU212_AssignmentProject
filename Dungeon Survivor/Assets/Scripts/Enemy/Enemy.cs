@@ -14,17 +14,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private PlayerManager playerHealth;
     private GameObject player;
-    private Animator anim;
+    //private Animator anim;
     private Rigidbody2D rb;
     private bool isFacingRight;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         anim.SetFloat("xVelocity", rb.velocity.x);
         if(transform.position.x < playerTransform.position.x && isFacingRight)
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             Flip();
         }
-    }
+    }*/
 
     public void SetTarget(GameObject _player)
     {

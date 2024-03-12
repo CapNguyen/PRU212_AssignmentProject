@@ -72,7 +72,7 @@ public class Level : MonoBehaviour
     {
         List<UpgradeData> upgradeList = new List<UpgradeData>();
 
-        if(count >upgrades.Count)
+        if(count > upgrades.Count)
         {
             count = upgrades.Count;
         }
@@ -97,10 +97,10 @@ public class Level : MonoBehaviour
             case UpgradeType.ItemUpgrade:
                 passiveItems.UpgradeItem(upgradeData);
                 break;
-            case UpgradeType.WeaponUnlock:
+            case UpgradeType.WeaponGet:
                 weaponManager.AddWeapon(upgradeData.weaponData);
                 break;
-            case UpgradeType.ItemUnlock:
+            case UpgradeType.ItemGet:
                 passiveItems.Equip(upgradeData.item);
                 AddUpgradesIntoTheListOfAvailableUpgrades(upgradeData.item.upgrades);
                 break;
