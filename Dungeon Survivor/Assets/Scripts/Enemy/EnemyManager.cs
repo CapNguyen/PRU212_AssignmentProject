@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     private GameObject player;
+    [SerializeField] StageProgress stageProgress;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Vector2 spawnArea;
     [SerializeField] private float spawnCooldown;
@@ -22,6 +23,7 @@ public class EnemyManager : MonoBehaviour
     {
         player = GameManager.instance.playerTranform.gameObject;
     }
+
     public void SpawnEnemy(EnemyData enemyToSpawn)
     {
         float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
@@ -38,7 +40,11 @@ public class EnemyManager : MonoBehaviour
         //spawning main object
         GameObject enemySpawn = Instantiate(enemyPrefab);
         enemySpawn.transform.position = spawnPosition;
+
         enemySpawn.GetComponent<Enemy>().SetTarget(player);
+        enemySpawn.GetComponent<Enemy>().SetStats(enemyToSpawn.stats);
+        enemySpawn.GetComponent<Enemy>().UpdateStatsForProgress(stageProgress.Progress);
+
         enemySpawn.transform.parent = transform;
 
         //spawning sprite

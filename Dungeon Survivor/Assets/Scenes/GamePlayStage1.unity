@@ -1699,6 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c41b449d77c73428bdcbeb9e21b2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageProgress: {fileID: 935446154}
   enemyPrefab: {fileID: 4110036863471036522, guid: 24c9ff10e642c6944b356a5265231658, type: 3}
   spawnArea: {x: 10, y: 10}
   spawnCooldown: 5
@@ -4276,6 +4277,7 @@ GameObject:
   - component: {fileID: 935446151}
   - component: {fileID: 935446152}
   - component: {fileID: 935446153}
+  - component: {fileID: 935446154}
   m_Layer: 0
   m_Name: -----World-----
   m_TagString: Untagged
@@ -4366,6 +4368,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToComplete: 50
   levelCompletionPanel: {fileID: 0}
+--- !u!114 &935446154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935446148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b33a2ec7cf69d646bf8a80c20436b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressTimeRate: 10
+  progressPerSplit: 0.5
 --- !u!1001 &945389791
 PrefabInstance:
   m_ObjectHideFlags: 0

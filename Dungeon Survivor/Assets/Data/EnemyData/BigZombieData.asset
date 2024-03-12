@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BigZombie
   animatedPrefab: {fileID: 3195937832473570100, guid: 796f1046c0931eb47a1ebd173f559a57, type: 3}
+  stats:
+    hp: 20
+    damage: 5
+    experience_reward: 800
+    speed: 1

@@ -7,4 +7,5 @@ public class EnemyData : ScriptableObject
 {
     public string name;
     public GameObject animatedPrefab;
+    public EnemyStats stats;
 }
