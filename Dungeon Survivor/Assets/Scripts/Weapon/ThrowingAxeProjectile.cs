@@ -30,10 +30,11 @@ public class ThrowingAxeProjectile : MonoBehaviour
             Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.7f);
             foreach (Collider2D c in hit)
             {
-                Enemy enemy = c.GetComponent<Enemy>();
-                if (enemy != null)
+                IDamageable damageable = c.GetComponent<IDamageable>();
+                if (damageable != null)
                 {
-                    enemy.TakeDamage(dmg);
+                    PostDamage(dmg, transform.position);
+                    damageable.TakeDamage(dmg);
                     hitDetected = true;
                     break;
                 }
@@ -49,5 +50,10 @@ public class ThrowingAxeProjectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void PostDamage(int damage, Vector3 worldPosition)
+    {
+        MessageSystem.instance.PostMessage(damage.ToString(), worldPosition);
     }
 }

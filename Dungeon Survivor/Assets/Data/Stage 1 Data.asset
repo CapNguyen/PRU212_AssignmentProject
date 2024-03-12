@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Stage 1 Data
   m_EditorClassIdentifier: 
   stageEvents:
-  - time: 5
+  - eventType: 0
+    time: 5
     message: Hello
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
+    objectToSpawn: {fileID: 0}
     count: 3
-  - time: 7
-    message: 'Test event '
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    count: 5
-  - time: 10
-    message: xD
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    count: 7
+  - eventType: 1
+    time: 7
+    message: Spawn Chest
+    enemyToSpawn: {fileID: 0}
+    objectToSpawn: {fileID: 474365430104839581, guid: 56d480353a1550a438a0c60e61bbf283, type: 3}
+    count: 15

@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy(EnemyData enemyToSpawn)
     {
-        float yRandom = yRandom = Random.Range(-spawnArea.y, spawnArea.y);
+        float yRandom = Random.Range(-spawnArea.y, spawnArea.y);
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
         if(xRandom != spawnArea.x || xRandom != -spawnArea.x)
         {

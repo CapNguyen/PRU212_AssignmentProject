@@ -11,7 +11,7 @@ public class SpawnObject : MonoBehaviour
     {
         if(Random.value < probability)
         {
-            GameObject go = Instantiate(spawnObject, transform.position, Quaternion.identity);
+            SpawnManager.instance.SpawnObject(transform.position, spawnObject);
         }
     }
 }
