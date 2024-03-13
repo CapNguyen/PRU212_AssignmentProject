@@ -1701,8 +1701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageProgress: {fileID: 935446154}
   enemyPrefab: {fileID: 4110036863471036522, guid: 24c9ff10e642c6944b356a5265231658, type: 3}
-  spawnArea: {x: 50, y: 50}
+  spawnArea: {x: 20, y: 20}
   spawnCooldown: 5
+  bossHealthBar: {fileID: 0}
 --- !u!4 &406932942
 Transform:
   m_ObjectHideFlags: 0

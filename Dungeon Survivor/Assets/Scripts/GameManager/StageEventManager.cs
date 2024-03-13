@@ -32,20 +32,17 @@ public class StageEventManager : MonoBehaviour
         {
             switch (stageData.stageEvents[eventIndexer].eventType)
             {
-                case StageEvenetType.SpawnEnemy:
-                    for (int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)
-                    {
-                        SpawnEnemy();
-                    }
+                case StageEventType.SpawnEnemy:
+                    SpawnEnemy(false);
                     break;
-                case StageEvenetType.SpawnObject:
-                    for(int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)
-                    {
-                        SpawnObject();
-                    }
+                case StageEventType.SpawnObject:
+                    SpawnObject();
                     break;
-                case StageEvenetType.WinStage:
+                case StageEventType.WinStage:
                     WinStage();
+                    break;
+                case StageEventType.SpawnEnemyBoss:
+                    SpawnEnemy(true);
                     break;
             }
             Debug.Log(stageData.stageEvents[eventIndexer].message);
@@ -58,17 +55,22 @@ public class StageEventManager : MonoBehaviour
         FindObjectOfType<PlayerWinManager>().Win();
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(bool bossEnemy)
     {
-        enemyManager.SpawnEnemy(stageData.stageEvents[eventIndexer].enemyToSpawn);
+        for (int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)
+        {
+            enemyManager.SpawnEnemy(stageData.stageEvents[eventIndexer].enemyToSpawn, bossEnemy);
+        }
     }
-
+        
     private void SpawnObject()
     {
-        Vector3 positionToSpawn = GameManager.instance.playerTranform.position;
+        for (int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)
+        {
+            Vector3 positionToSpawn = GameManager.instance.playerTranform.position;
 
-        
+            SpawnManager.instance.SpawnObject(stageData.stageEvents[eventIndexer].objectToSpawn);
+        }
 
-        SpawnManager.instance.SpawnObject(stageData.stageEvents[eventIndexer].objectToSpawn);
     }
 }

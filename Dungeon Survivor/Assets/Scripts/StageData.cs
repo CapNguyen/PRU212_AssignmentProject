@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StageEvenetType
+public enum StageEventType
 {
     SpawnEnemy,
+    SpawnEnemyBoss,
     SpawnObject,
     WinStage
 }
@@ -13,7 +14,7 @@ public enum StageEvenetType
 [Serializable]
 public class StageEvent
 {
-    public StageEvenetType eventType;
+    public StageEventType eventType;
 
     public float time;
     public string message;

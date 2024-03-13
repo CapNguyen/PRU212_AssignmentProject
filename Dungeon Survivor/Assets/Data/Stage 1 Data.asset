@@ -21,12 +21,12 @@ MonoBehaviour:
     count: 3
   - eventType: 1
     time: 7
-    message: Spawn Chest
-    enemyToSpawn: {fileID: 0}
-    objectToSpawn: {fileID: 474365430104839581, guid: 56d480353a1550a438a0c60e61bbf283, type: 3}
-    count: 15
-  - eventType: 2
-    time: 20
+    message: Boss
+    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
+    objectToSpawn: {fileID: 0}
+    count: 3
+  - eventType: 3
+    time: 50
     message: You Won
     enemyToSpawn: {fileID: 0}
     objectToSpawn: {fileID: 0}
