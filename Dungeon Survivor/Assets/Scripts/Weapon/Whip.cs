@@ -21,13 +21,14 @@ public class Whip : WeaponBase
 
     private void ApplyDamage(Collider2D[] hit)
     {
+        int damage = GetDamage();
         for (int i = 0; i < hit.Length; i++)
         {
             IDamageable enemy = hit[i].GetComponent<IDamageable>();
             if (enemy != null)
             {
-                PostDamage(WeaponStats.damage, hit[i].transform.position);
-                enemy.TakeDamage(WeaponStats.damage);
+                PostDamage(damage, hit[i].transform.position);
+                enemy.TakeDamage(damage);
             }
         }
     }

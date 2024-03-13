@@ -8,10 +8,12 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Transform weaponObjectsController;
     [SerializeField] WeaponData startingWeapon;
     List<WeaponBase> weapons;
+    PlayerManager character;
 
     private void Awake()
     {
         weapons = new List<WeaponBase>();
+        character = GetComponent<PlayerManager>();
     }
 
     private void Start()
@@ -27,6 +29,8 @@ public class WeaponManager : MonoBehaviour
 
         weaponBase.SetData(weaponData);
         weapons.Add(weaponBase);
+        weaponBase.AddOwnerCharacter(character);
+
         Level level = GetComponent<Level>();
         if(level != null)
         {

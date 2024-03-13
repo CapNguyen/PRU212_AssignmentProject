@@ -13,9 +13,13 @@ public class PlayerManager : MonoBehaviour
     public float hpRegenerationRate = 1f;
     public float hpRegenerationTimer;
 
+    public float damageBonus;
+
     [HideInInspector] public Level level;
     [HideInInspector] public Coins coins;
     private bool isDead;
+
+    [SerializeField] DataContainer dataContainer;
 
     private void Awake()
     {
@@ -25,7 +29,20 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        ApplyPersistantUpgrades();
+
         playerHealth.SetStatus(currentHealth, maxHealth);
+    }
+
+    private void ApplyPersistantUpgrades()
+    {
+        int hpUpgradeLevel = dataContainer.GetUpgradeLevel(PlayerPersistentUpgrades.HP);
+
+        maxHealth += maxHealth / 10 * hpUpgradeLevel;
+
+        int dmgUpgradeLevel = dataContainer.GetUpgradeLevel(PlayerPersistentUpgrades.Damage);
+
+        damageBonus = 1f + 0.1f * dmgUpgradeLevel;
     }
 
     private void Update()

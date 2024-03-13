@@ -35,7 +35,7 @@ public class ThrowingAxeWeapon : WeaponBase
 
             ThrowingAxeProjectile throwingAxeProjectile = throwingAxe.GetComponent<ThrowingAxeProjectile>();
             throwingAxeProjectile.setDirection(player.lastHorizontalMove, 0f);
-            throwingAxeProjectile.dmg = WeaponStats.damage;
+            throwingAxeProjectile.dmg = GetDamage();
         }
         
     }

@@ -8,6 +8,8 @@ public abstract class WeaponBase : MonoBehaviour
     public WeaponData WeaponData;
     public WeaponStats WeaponStats;
     float timer;
+
+    PlayerManager playerManager;
     public void Update()
     {
         timer -= Time.deltaTime;
@@ -26,6 +28,12 @@ public abstract class WeaponBase : MonoBehaviour
     }
     public abstract void Attack();
 
+    public int GetDamage()
+    {
+        int damage = (int)(WeaponData.stats.damage * playerManager.damageBonus);
+        return damage;
+    } 
+
     public virtual void PostDamage(int damage, Vector3 targetPosition)
     {
         MessageSystem.instance.PostMessage(damage.ToString(), targetPosition);
@@ -34,5 +42,10 @@ public abstract class WeaponBase : MonoBehaviour
     public void Upgrade(UpgradeData upgradeData)
     {
         WeaponStats.Sum(upgradeData.weaponUpgradeStats);
+    }
+
+    internal void AddOwnerCharacter(PlayerManager character)
+    {
+        playerManager = character;
     }
 }

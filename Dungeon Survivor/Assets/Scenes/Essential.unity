@@ -1185,8 +1185,10 @@ MonoBehaviour:
   playerHealth: {fileID: 2119668846}
   hpRegenerationRate: 1
   hpRegenerationTimer: 0
+  damageBonus: 0
   level: {fileID: 0}
   coins: {fileID: 0}
+  dataContainer: {fileID: 11400000, guid: a62854ae0e7f777499812684cc8d1dec, type: 2}
 --- !u!114 &450294802
 MonoBehaviour:
   m_ObjectHideFlags: 0
