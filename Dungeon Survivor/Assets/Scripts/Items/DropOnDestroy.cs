@@ -17,10 +17,22 @@ public class DropOnDestroy : MonoBehaviour
     public void CheckDrop()
     {
         if (isQuitting) return;
+
+        if(dropItemPrefab.Count <= 0)
+        {
+            Debug.LogWarning("list of drop is empty");
+            return;
+        }
         if(Random.value < chance)
         {
             GameObject toDrop = dropItemPrefab[Random.Range(0, dropItemPrefab.Count)];
-            SpawnManager.instance.SpawnObject(transform.position, toDrop);
+
+            if(toDrop == null )
+            {
+                Debug.LogWarning("DropOnDestroy, dropped item is null");
+                return;
+            }
+            SpawnManager.instance.SpawnObject(toDrop);
         }
     }
 }

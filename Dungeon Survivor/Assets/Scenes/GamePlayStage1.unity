@@ -4276,7 +4276,6 @@ GameObject:
   - component: {fileID: 935446149}
   - component: {fileID: 935446151}
   - component: {fileID: 935446152}
-  - component: {fileID: 935446153}
   - component: {fileID: 935446154}
   - component: {fileID: 935446155}
   m_Layer: 0
@@ -4354,21 +4353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 8b2bd4a7ede7b6a4297a4cae7c7ecdf4, type: 2}
+  spawnArea: {x: 0, y: 0}
   enemyManager: {fileID: 406932941}
---- !u!114 &935446153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935446148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f926cf26451eb3418e577af22db16e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToComplete: 50
-  levelCompletionPanel: {fileID: 0}
 --- !u!114 &935446154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4395,6 +4381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5523ea5b59539004b90968a086e30fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnArea: {x: 0, y: 0}
 --- !u!1001 &945389791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6966,6 +6953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5523ea5b59539004b90968a086e30fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnArea: {x: 10, y: 10}
 --- !u!4 &1726837124
 Transform:
   m_ObjectHideFlags: 0

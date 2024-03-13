@@ -11,7 +11,7 @@ public class SpawnObject : MonoBehaviour
     {
         if(Random.value < probability)
         {
-            SpawnManager.instance.SpawnObject(transform.position, spawnObject);
+            SpawnManager.instance.SpawnObject(spawnObject);
         }
     }
 }

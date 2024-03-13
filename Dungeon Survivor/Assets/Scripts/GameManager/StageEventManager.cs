@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,17 @@ public class StageEventManager : MonoBehaviour
 
     StageTime stageTime;
     int eventIndexer;
+    PlayerWinManager playerWin;
 
     private void Awake()
     {
         stageTime = GetComponent<StageTime>();
     }
 
+    private void Start()
+    {
+        playerWin = FindObjectOfType<PlayerWinManager>();
+    }
     private void Update()
     {
         if (eventIndexer >= stageData.stageEvents.Count)
@@ -39,11 +45,17 @@ public class StageEventManager : MonoBehaviour
                     }
                     break;
                 case StageEvenetType.WinStage:
+                    WinStage();
                     break;
             }
             Debug.Log(stageData.stageEvents[eventIndexer].message);
             eventIndexer += 1;
         }
+    }
+
+    private void WinStage()
+    {
+        FindObjectOfType<PlayerWinManager>().Win();
     }
 
     private void SpawnEnemy()
@@ -55,19 +67,8 @@ public class StageEventManager : MonoBehaviour
     {
         Vector3 positionToSpawn = GameManager.instance.playerTranform.position;
 
-        float yRandom = Random.Range(-spawnArea.y, spawnArea.y);
-        float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
-        if (xRandom != spawnArea.x || xRandom != -spawnArea.x)
-        {
-            int rdNum = Random.Range(0, 1);
-            yRandom = rdNum == 1 ? spawnArea.y : -spawnArea.y;
-        }
+        
 
-        positionToSpawn += new Vector3(xRandom, yRandom, 0);
-
-        SpawnManager.instance.SpawnObject(
-                                    positionToSpawn,
-                                    stageData.stageEvents[eventIndexer].objectToSpawn
-                                    );
+        SpawnManager.instance.SpawnObject(stageData.stageEvents[eventIndexer].objectToSpawn);
     }
 }

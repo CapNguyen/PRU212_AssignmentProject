@@ -25,3 +25,9 @@ MonoBehaviour:
     enemyToSpawn: {fileID: 0}
     objectToSpawn: {fileID: 474365430104839581, guid: 56d480353a1550a438a0c60e61bbf283, type: 3}
     count: 15
+  - eventType: 2
+    time: 20
+    message: You Won
+    enemyToSpawn: {fileID: 0}
+    objectToSpawn: {fileID: 0}
+    count: 0

@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df601d414bb98a14da21cf01a313c6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemPrefab: {fileID: 533018736810757224, guid: b4c0bb881c56a674199898051713ae8d, type: 3}
+  dropItemPrefab:
+  - {fileID: 1150239527492713037, guid: e97ac4887cd349349a350477e9b52663, type: 3}
   chance: 0.35
 --- !u!61 &5126328640950618619
 BoxCollider2D:
