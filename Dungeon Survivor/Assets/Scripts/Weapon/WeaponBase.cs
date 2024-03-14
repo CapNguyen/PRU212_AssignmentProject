@@ -27,7 +27,19 @@ public abstract class WeaponBase : MonoBehaviour
         WeaponStats = new WeaponStats(wd.stats.damage, wd.stats.timeToAttack, wd.stats.numberOfAttacks);
     }
     public abstract void Attack();
-
+    public void ApplyDamage(Collider2D[] hit)
+    {
+        int damage = GetDamage();
+        for (int i = 0; i < hit.Length; i++)
+        {
+            IDamageable enemy = hit[i].GetComponent<IDamageable>();
+            if (enemy != null)
+            {
+                PostDamage(damage, hit[i].transform.position);
+                enemy.TakeDamage(damage);
+            }
+        }
+    }
     public int GetDamage()
     {
         int damage = (int)(WeaponData.stats.damage * playerManager.damageBonus);
