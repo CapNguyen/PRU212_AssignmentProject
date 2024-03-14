@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarlickWeapon : WeaponBase
+public class CleaverWeapon : WeaponBase
 {
     [SerializeField] float attackAreaSize = 5f;
     public override void Attack()

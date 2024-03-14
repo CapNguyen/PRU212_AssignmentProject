@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowingAxeWeapon : WeaponBase
+public class SpearWeapon : WeaponBase
 {
-    [SerializeField] GameObject axePrefab;
+    [SerializeField] GameObject spearPrefab;
     [SerializeField] float spread = 0.5f;
     Player player;
 
@@ -14,22 +13,16 @@ public class ThrowingAxeWeapon : WeaponBase
         UpdateVectorOfAttack();
         for (int i = 0; i < WeaponStats.numberOfAttacks; i++)
         {
-            GameObject throwingAxe = Instantiate(axePrefab);
+            GameObject throwingAxe = Instantiate(spearPrefab);
 
             Vector3 axepos = transform.position;
-
-            if (WeaponStats.numberOfAttacks > 1)
-            {
-                axepos.y -= (spread * WeaponStats.numberOfAttacks - 1) / 2; //calculating offset
-                axepos.y += (i * spread); //spreading axe along line
-            }
 
             throwingAxe.transform.position = axepos;
 
             ThrowingAxeProjectile throwingAxeProjectile = throwingAxe.GetComponent<ThrowingAxeProjectile>();
-            throwingAxeProjectile.setDirection(vectorOfAttack.x,vectorOfAttack.y);
+            throwingAxeProjectile.setDirection(vectorOfAttack.x, vectorOfAttack.y);
             throwingAxeProjectile.dmg = GetDamage();
         }
-        
+
     }
 }

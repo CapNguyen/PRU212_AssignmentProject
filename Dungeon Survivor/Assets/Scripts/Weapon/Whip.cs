@@ -25,7 +25,7 @@ public class Whip : WeaponBase
     {
         for (int i = 0; i < WeaponStats.numberOfAttacks; i++)
         {
-            if (player.lastHorizontalMove < 0)
+            if (player.lastHorizontalDeCoupledVector < 0)
             {
                 whipAttackLeft.SetActive(true);
                 Collider2D[] hit = Physics2D.OverlapBoxAll(whipAttackLeft.transform.position, attackSize, 0f);

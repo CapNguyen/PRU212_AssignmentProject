@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3316506799537392443}
-  - component: {fileID: 7872807236692607282}
+  - component: {fileID: 7211472793772585688}
   m_Layer: 0
-  m_Name: wpn_Garlick
+  m_Name: wpn_Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7872807236692607282
+--- !u!114 &7211472793772585688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2694033082418723950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b225e732f45328c40bc6061b8b9950b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 877a60781a47f4140ac3b6c0444e0216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponData: {fileID: 0}
@@ -49,4 +49,7 @@ MonoBehaviour:
     damage: 0
     timeToAttack: 0
     numberOfAttacks: 0
-  attackAreaSize: 5
+  vectorOfAttack: {x: 0, y: 0}
+  attackDirection: 1
+  spearPrefab: {fileID: 5856727178996151085, guid: 6e4585465cc3eb344b59bf6fec7726f3, type: 3}
+  spread: 0.5

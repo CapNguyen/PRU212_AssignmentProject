@@ -5,10 +5,14 @@ public class Player : MonoBehaviour
     [Header("Movement Info")]
     [SerializeField] private float speed;
     [HideInInspector]
-
     public Vector2 movement;
-    public float lastHorizontalMove;
-    public float lastVerticalMove;
+    [HideInInspector]
+    public float lastHorizontalDeCoupledVector;
+    [HideInInspector]
+    public float lastVerticalDeCoupledVector; [HideInInspector]
+    public float lastHorizontalCoupledVector;
+    [HideInInspector]
+    public float lastVerticalCoupledVector;
     private float xInput;
 
     private Animator anim;
@@ -22,8 +26,11 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        lastHorizontalMove = -1f;
-        lastVerticalMove = 1f;
+        lastHorizontalDeCoupledVector = -1f;
+        lastVerticalDeCoupledVector = 1f;
+
+        lastHorizontalCoupledVector = -1f;
+        lastVerticalCoupledVector = 1f;
     }
 
     void Update()
@@ -42,14 +49,19 @@ public class Player : MonoBehaviour
         xInput = Input.GetAxisRaw("Horizontal");
         movement.x = xInput;
         movement.y = Input.GetAxisRaw("Vertical");
-
-        if(movement.x != 0)
+        if (movement.x != 0 && movement.y != 0)
         {
-            lastHorizontalMove = movement.x;
+            lastHorizontalCoupledVector = movement.x;
+            lastVerticalCoupledVector = movement.y;
         }
-        if(movement.y != 0)
+
+        if (movement.x != 0)
         {
-            lastVerticalMove = movement.y;
+            lastHorizontalDeCoupledVector = movement.x;
+        }
+        if (movement.y != 0)
+        {
+            lastVerticalDeCoupledVector = movement.y;
         }
 
         rb.velocity = movement * speed;
