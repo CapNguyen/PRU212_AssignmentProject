@@ -31,8 +31,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] StageProgress stageProgress;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Vector2 spawnArea;
-    [SerializeField] private float spawnCooldown;
-    private float timer;
 
     List<Enemy> bossEnemiesList;
     int totalBossHealth;
@@ -42,6 +40,13 @@ public class EnemyManager : MonoBehaviour
     List<EnemiesSpawnGroup> enemiesSpawnGroupList;
     List<EnemiesSpawnGroup> repeatedSpawnGroupList;
 
+    int spawnPerFrame = 2;
+    private void Start()
+    {
+        player = GameManager.instance.playerTranform.gameObject;
+        bossHealthBar = FindObjectOfType<BossHPBar>(true).GetComponent<Slider>();
+        stageProgress = FindObjectOfType<StageProgress>();
+    }
     private void Update()
     {
         ProcessSpawn();
@@ -77,21 +82,20 @@ public class EnemyManager : MonoBehaviour
     private void ProcessSpawn()
     {
         if (enemiesSpawnGroupList == null) { return; }
-        if (enemiesSpawnGroupList.Count > 0)
+        for (int i = 0; i < spawnPerFrame; i++)
         {
-            SpawnEnemy(enemiesSpawnGroupList[0].EnemyData, enemiesSpawnGroupList[0].isBoss);
-            enemiesSpawnGroupList[0].count -= 1;
-            if (enemiesSpawnGroupList[0].count <= 0)
+
+            if (enemiesSpawnGroupList.Count > 0)
             {
-                enemiesSpawnGroupList.RemoveAt(0);
+                if (enemiesSpawnGroupList[0].count <= 0) { return; }
+                SpawnEnemy(enemiesSpawnGroupList[0].EnemyData, enemiesSpawnGroupList[0].isBoss);
+                enemiesSpawnGroupList[0].count -= 1;
+                if (enemiesSpawnGroupList[0].count <= 0)
+                {
+                    enemiesSpawnGroupList.RemoveAt(0);
+                }
             }
         }
-    }
-
-    private void Start()
-    {
-        player = GameManager.instance.playerTranform.gameObject;
-        bossHealthBar = FindObjectOfType<BossHPBar>(true).GetComponent<Slider>();
     }
 
     private void UpdateBossHealth()
@@ -132,8 +136,8 @@ public class EnemyManager : MonoBehaviour
         float xRandom = Random.Range(-spawnArea.x, spawnArea.x);
         if (xRandom != spawnArea.x || xRandom != -spawnArea.x)
         {
-            int rdNum = Random.Range(0, 1);
-            yRandom = rdNum == 1 ? spawnArea.y : -spawnArea.y;
+            int rdNum = Random.Range(0, 100);
+            yRandom = rdNum < 50 ? spawnArea.y : -spawnArea.y;
         }
         Vector3 spawnPosition = new Vector3(xRandom, yRandom, 0);
 

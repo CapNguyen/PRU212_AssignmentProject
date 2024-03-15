@@ -6,8 +6,7 @@ using UnityEngine;
 public class StageEventManager : MonoBehaviour
 {
     [SerializeField] StageData stageData;
-    [SerializeField] private Vector2 spawnArea;
-    [SerializeField] EnemyManager enemyManager;
+    EnemyManager enemyManager;
 
     StageTime stageTime;
     int eventIndexer;
@@ -21,6 +20,7 @@ public class StageEventManager : MonoBehaviour
     private void Start()
     {
         playerWin = FindObjectOfType<PlayerWinManager>();
+        enemyManager = FindObjectOfType<EnemyManager>();
     }
     private void Update()
     {

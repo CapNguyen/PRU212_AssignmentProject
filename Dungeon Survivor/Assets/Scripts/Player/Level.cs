@@ -12,7 +12,7 @@ public class Level : MonoBehaviour
     [SerializeField] List<UpgradeData> upgrades;
     List<UpgradeData> selectedUpgrade;
 
-    [SerializeField]  List<UpgradeData> acquiredUpgrades;
+    [SerializeField] List<UpgradeData> acquiredUpgrades;
 
     WeaponManager weaponManager;
     PassiveItems passiveItems;
@@ -57,7 +57,7 @@ public class Level : MonoBehaviour
 
     private void LevelUp()
     {
-        if(selectedUpgrade == null) { selectedUpgrade = new List<UpgradeData>(); }
+        if (selectedUpgrade == null) { selectedUpgrade = new List<UpgradeData>(); }
         selectedUpgrade.Clear();
         selectedUpgrade.AddRange(GetUpgrades(3));
 
@@ -67,12 +67,23 @@ public class Level : MonoBehaviour
         level += 1;
         experienceBar.SetLevelText(level);
     }
+    public void ShuffleUpgrades()
+    {
+        for (int i = upgrades.Count - 1; i > 0; i--)
+        {
+            int x = Random.Range(0, i + 1);
+            UpgradeData shuffleElement = upgrades[i];
+            upgrades[i] = upgrades[x];
+            upgrades[x] = shuffleElement;
+        }
+    }
 
     public List<UpgradeData> GetUpgrades(int count)
     {
+        ShuffleUpgrades();
         List<UpgradeData> upgradeList = new List<UpgradeData>();
 
-        if(count > upgrades.Count)
+        if (count > upgrades.Count)
         {
             count = upgrades.Count;
         }
@@ -87,7 +98,7 @@ public class Level : MonoBehaviour
     public void Upgrade(int selectedUpgradeId)
     {
         UpgradeData upgradeData = selectedUpgrade[selectedUpgradeId];
-        if(acquiredUpgrades == null) { acquiredUpgrades = new List<UpgradeData>(); }
+        if (acquiredUpgrades == null) { acquiredUpgrades = new List<UpgradeData>(); }
 
         switch (upgradeData.UpgradeType)
         {
@@ -112,7 +123,7 @@ public class Level : MonoBehaviour
 
     internal void AddUpgradesIntoTheListOfAvailableUpgrades(List<UpgradeData> upgradesToAdd)
     {
-        if(upgradesToAdd == null)
+        if (upgradesToAdd == null)
         {
             return;
         }

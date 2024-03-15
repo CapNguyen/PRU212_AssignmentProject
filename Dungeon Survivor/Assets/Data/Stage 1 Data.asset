@@ -18,7 +18,7 @@ MonoBehaviour:
     message: Hello
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
-    count: 100
+    count: 10
     isRepeatedEvent: 0
     repeatEverySecond: 0
     repeatCount: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     message: Boss
     enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
     objectToSpawn: {fileID: 0}
-    count: 100
+    count: 5
     isRepeatedEvent: 0
     repeatEverySecond: 0
     repeatCount: 0
