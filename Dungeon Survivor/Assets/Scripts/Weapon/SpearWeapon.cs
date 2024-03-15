@@ -6,7 +6,6 @@ public class SpearWeapon : WeaponBase
 {
     [SerializeField] GameObject spearPrefab;
     [SerializeField] float spread = 0.5f;
-    Player player;
 
     public override void Attack()
     {

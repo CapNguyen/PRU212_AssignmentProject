@@ -28,7 +28,7 @@ public class StageEventManager : MonoBehaviour
         {
             return;
         }
-        if (stageTime.time > stageData.stageEvents[eventIndexer].time) 
+        if (stageTime.time > stageData.stageEvents[eventIndexer].time)
         {
             switch (stageData.stageEvents[eventIndexer].eventType)
             {
@@ -57,12 +57,15 @@ public class StageEventManager : MonoBehaviour
 
     private void SpawnEnemy(bool bossEnemy)
     {
-        for (int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)
+        StageEvent currentEvent = stageData.stageEvents[eventIndexer];
+        enemyManager.AddGroupToSpawn(currentEvent.enemyToSpawn, currentEvent.count, bossEnemy);
+
+        if (currentEvent.isRepeatedEvent)
         {
-            enemyManager.SpawnEnemy(stageData.stageEvents[eventIndexer].enemyToSpawn, bossEnemy);
+            enemyManager.AddRepeatedSpawn(currentEvent, bossEnemy);
         }
     }
-        
+
     private void SpawnObject()
     {
         for (int i = 0; i < stageData.stageEvents[eventIndexer].count; i++)

@@ -22,6 +22,10 @@ public class StageEvent
     public EnemyData enemyToSpawn;
     public GameObject objectToSpawn;
     public int count;
+
+    public bool isRepeatedEvent;
+    public float repeatEverySecond;
+    public int repeatCount;
 }
 [CreateAssetMenu]
 public class StageData : ScriptableObject

@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjectsController: {fileID: 1051032016}
-  startingWeapon: {fileID: 11400000, guid: a4aa5b9c2be1c284a9a7cecc499e303a, type: 2}
+  startingWeapon: {fileID: 11400000, guid: fb5d281b51a9080479e957720b45e5f5, type: 2}
 --- !u!1 &515203460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 151.3, y: 181.7}
+  m_AnchoredPosition: {x: 644.3, y: 433.7}
   m_SizeDelta: {x: 423.8208, y: 131.9626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914070202
@@ -3893,7 +3893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 151, y: 171}
+  m_AnchoredPosition: {x: 644, y: 423}
   m_SizeDelta: {x: 423.8208, y: 131.9626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424692925
@@ -4364,8 +4364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.0896, y: -29.519}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: -25.508972}
+  m_SizeDelta: {x: 0, y: 51.019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753016637
 MonoBehaviour:

@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         xInput = Input.GetAxisRaw("Horizontal");
         movement.x = xInput;
         movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.x != 0 && movement.y != 0)
+        if (movement.x != 0 || movement.y != 0)
         {
             lastHorizontalCoupledVector = movement.x;
             lastVerticalCoupledVector = movement.y;

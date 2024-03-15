@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877a60781a47f4140ac3b6c0444e0216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponData: {fileID: 0}
+  WeaponData: {fileID: 11400000, guid: a4aa5b9c2be1c284a9a7cecc499e303a, type: 2}
   WeaponStats:
     damage: 0
     timeToAttack: 0

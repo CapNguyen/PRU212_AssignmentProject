@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23583c76be0ac6344b7326d84d663d21, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
-  name: 
+  name: Spear
   stats:
     damage: 1
     timeToAttack: 1
