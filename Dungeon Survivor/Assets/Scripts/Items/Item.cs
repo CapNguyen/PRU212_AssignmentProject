@@ -17,7 +17,7 @@ public class ItemStats
 [CreateAssetMenu]
 public class Item : ScriptableObject
 {
-    public string name;
+    public string itemName;
     public ItemStats stats;
     public List<UpgradeData> upgrades;
 

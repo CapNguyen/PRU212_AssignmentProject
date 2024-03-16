@@ -119,11 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829cddd4da2fa2b4ab09e5b80eb8cd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   playerTransform: {fileID: 0}
-  hp: 1
-  damage: 2
-  experience_reward: 400
+  stats:
+    hp: 0
+    damage: 0
+    experience_reward: 0
+    speed: 0
+  enemyData: {fileID: 0}
 --- !u!114 &2955378614067870314
 MonoBehaviour:
   m_ObjectHideFlags: 0

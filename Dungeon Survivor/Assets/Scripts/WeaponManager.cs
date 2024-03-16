@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] Transform weaponObjectsController;
-    [SerializeField] WeaponData startingWeapon;
+    [SerializeField] public WeaponData startingWeapon;
     List<WeaponBase> weapons;
     PlayerManager character;
 
@@ -40,7 +40,7 @@ public class WeaponManager : MonoBehaviour
 
     internal void UpgradeWeapon(UpgradeData upgradeData)
     {
-        WeaponBase weaponToUpgrade = weapons.Find(wd => wd.WeaponData == upgradeData.weaponData);
+        WeaponBase weaponToUpgrade = weapons.Find(wd => wd.weaponData == upgradeData.weaponData);
         weaponToUpgrade.Upgrade(upgradeData);
     }
 }

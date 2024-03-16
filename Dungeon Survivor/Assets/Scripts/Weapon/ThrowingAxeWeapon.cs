@@ -7,28 +7,21 @@ public class ThrowingAxeWeapon : WeaponBase
 {
     [SerializeField] GameObject axePrefab;
     [SerializeField] float spread = 0.5f;
-    Player player;
 
     public override void Attack()
     {
         UpdateVectorOfAttack();
-        for (int i = 0; i < WeaponStats.numberOfAttacks; i++)
+        for (int i = 0; i < weaponStats.numberOfAttacks; i++)
         {
-            GameObject throwingAxe = Instantiate(axePrefab);
+            Vector3 axePos = transform.position;
 
-            Vector3 axepos = transform.position;
-
-            if (WeaponStats.numberOfAttacks > 1)
+            if (weaponStats.numberOfAttacks > 1)
             {
-                axepos.y -= (spread * WeaponStats.numberOfAttacks - 1) / 2; //calculating offset
-                axepos.y += (i * spread); //spreading axe along line
+                axePos.y -= (spread * weaponStats.numberOfAttacks - 1) / 2; //calculating offset
+                axePos.y += (i * spread); //spreading axe along line
             }
 
-            throwingAxe.transform.position = axepos;
-
-            ThrowingAxeProjectile throwingAxeProjectile = throwingAxe.GetComponent<ThrowingAxeProjectile>();
-            throwingAxeProjectile.setDirection(vectorOfAttack.x,vectorOfAttack.y);
-            throwingAxeProjectile.dmg = GetDamage();
+            SpawnProjectile(axePrefab, axePos);
         }
         
     }

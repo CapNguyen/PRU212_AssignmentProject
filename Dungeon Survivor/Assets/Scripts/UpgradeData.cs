@@ -14,7 +14,7 @@ public enum UpgradeType
 public class UpgradeData : ScriptableObject
 {
     public UpgradeType UpgradeType;
-    public string name;
+    public string upgradeDataName;
     public Sprite icon;
 
     public WeaponData weaponData;

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyData : ScriptableObject
 {
-    public string name;
+    public string enemyDataName;
     public GameObject animatedPrefab;
     public EnemyStats stats;
 }

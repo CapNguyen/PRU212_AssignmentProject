@@ -5,16 +5,9 @@ using UnityEngine;
 
 public class Whip : WeaponBase
 {
-
-    private Player player;
     [SerializeField] private GameObject whipAttackLeft;
     [SerializeField] private GameObject whipAttackRight;
     [SerializeField] private Vector2 attackSize = new Vector2(2, 2);
-
-    private void Awake()
-    {
-        player = GetComponentInParent<Player>();
-    }
 
     public override void Attack()
     {
@@ -23,7 +16,7 @@ public class Whip : WeaponBase
 
     IEnumerator AttackProcess()
     {
-        for (int i = 0; i < WeaponStats.numberOfAttacks; i++)
+        for (int i = 0; i < weaponStats.numberOfAttacks; i++)
         {
             if (player.lastHorizontalDeCoupledVector < 0)
             {

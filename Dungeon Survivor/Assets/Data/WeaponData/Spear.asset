@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23583c76be0ac6344b7326d84d663d21, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
-  name: Spear
+  weaponName: Spear
   stats:
     damage: 1
     timeToAttack: 1
     numberOfAttacks: 1
+    numberOfHits: 1
+    projectileSpeed: 10
+    stun: 0
   weaponBasePrefab: {fileID: 2694033082418723950, guid: cb84381f82d8a004c8860c36f92538bf, type: 3}
   upgrades: []

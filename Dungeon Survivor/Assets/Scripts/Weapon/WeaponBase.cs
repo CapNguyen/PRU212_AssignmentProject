@@ -12,8 +12,9 @@ public enum AttackDirection
 }
 public abstract class WeaponBase : MonoBehaviour
 {
-    public WeaponData WeaponData;
-    public WeaponStats WeaponStats;
+    public Player player;
+    public WeaponData weaponData;
+    public WeaponStats weaponStats;
     float timer;
 
     Player playerMovement;
@@ -27,7 +28,7 @@ public abstract class WeaponBase : MonoBehaviour
         if (timer < 0f)
         {
             Attack();
-            timer = WeaponStats.timeToAttack;
+            timer = weaponStats.timeToAttack;
         }
     }
     private void Awake()
@@ -36,9 +37,9 @@ public abstract class WeaponBase : MonoBehaviour
     }
     public virtual void SetData(WeaponData wd)
     {
-        WeaponData = wd;
+        weaponData = wd;
 
-        WeaponStats = new WeaponStats(wd.stats.damage, wd.stats.timeToAttack, wd.stats.numberOfAttacks);
+        weaponStats = new WeaponStats(wd.stats);
     }
     public abstract void Attack();
     public void ApplyDamage(Collider2D[] hit)
@@ -49,14 +50,27 @@ public abstract class WeaponBase : MonoBehaviour
             IDamageable enemy = hit[i].GetComponent<IDamageable>();
             if (enemy != null)
             {
-                PostDamage(damage, hit[i].transform.position);
-                enemy.TakeDamage(damage);
+                ApplyDamage(hit[i].transform.position, damage, enemy);
             }
         }
     }
+
+    public void ApplyDamage(Vector3 position, int damage, IDamageable enemy)
+    {
+        PostDamage(damage, position);
+        enemy.TakeDamage(damage);
+        ApplyAdditionalEffects(enemy, position);
+    }
+
+    private void ApplyAdditionalEffects(IDamageable enemy, Vector3 enemyPosition)
+    {
+        enemy.Stun(weaponStats.stun);
+        enemy.Knockback((enemyPosition - transform.position).normalized, weaponStats.knockback,weaponStats.knockbackTimeWeight);
+    }
+
     public int GetDamage()
     {
-        int damage = (int)(WeaponData.stats.damage * playerManager.damageBonus);
+        int damage = (int)(weaponData.stats.damage * playerManager.damageBonus);
         return damage;
     }
 
@@ -67,7 +81,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     public void Upgrade(UpgradeData upgradeData)
     {
-        WeaponStats.Sum(upgradeData.weaponUpgradeStats);
+        weaponStats.Sum(upgradeData.weaponUpgradeStats);
     }
 
     internal void AddOwnerCharacter(PlayerManager character)
@@ -98,4 +112,17 @@ public abstract class WeaponBase : MonoBehaviour
         }
         vectorOfAttack = vectorOfAttack.normalized;
     }
+    public GameObject SpawnProjectile(GameObject projectilePrefab, Vector3 position)
+    {
+        GameObject projectileGO = Instantiate(projectilePrefab);
+        projectileGO.transform.position = position;
+
+        ProjectTile projectile = projectileGO.GetComponent<ProjectTile>();
+        projectile.setDirection(vectorOfAttack.x, vectorOfAttack.y);
+        projectile.SetStats(this);
+
+        return projectileGO;
+    }
+    private void adjustProjectileDirection() { }
+
 }

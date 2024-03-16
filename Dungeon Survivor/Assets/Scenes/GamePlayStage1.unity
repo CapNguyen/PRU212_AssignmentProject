@@ -4229,9 +4229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e4198f92a0786499a1d44e6dbb36cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageData: {fileID: 11400000, guid: 8b2bd4a7ede7b6a4297a4cae7c7ecdf4, type: 2}
-  spawnArea: {x: 0, y: 0}
-  enemyManager: {fileID: 0}
+  stageData: {fileID: 11400000, guid: ec1adf3511911854f9fbfbc2fd88fcec, type: 2}
 --- !u!114 &935446154
 MonoBehaviour:
   m_ObjectHideFlags: 0

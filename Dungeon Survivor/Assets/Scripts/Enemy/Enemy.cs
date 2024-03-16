@@ -37,11 +37,26 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool isFacingRight;
 
     public EnemyStats stats;
+    [SerializeField] EnemyData enemyData;
 
-    void Start()
+    float stunned;
+    Vector3 knockbackVector;
+    float knockbackForce;
+    float knockbackTimeWeight;
+    private void Awake()
     {
         //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+    }
+    private void Start()
+    {
+        if (enemyData != null)
+        {
+            InitSprite(enemyData.animatedPrefab);
+            SetStats(enemyData.stats);
+            SetTarget(GameManager.instance.playerTranform.gameObject);
+        }
     }
 
     /*private void Update()
@@ -70,13 +85,45 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        Vector3 playerDistance = (playerTransform.position - transform.position).normalized;
-        rb.velocity = playerDistance * stats.speed;
+        ProcessStun();
+        Move();
+    }
+
+    private void ProcessStun()
+    {
+        if (stunned > 0f)
+        {
+            stunned -= Time.deltaTime;
+        }
+    }
+
+    private void Move()
+    {
+        if (stunned > 0f)
+        {
+            return;
+        }
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        rb.velocity = CalculateMovementVelocity(direction) + CalculateKnockback();
+    }
+
+    private Vector3 CalculateMovementVelocity(Vector3 playerDistance)
+    {
+        return playerDistance * stats.speed * (stunned > 0f ? 0f : 1f);
+    }
+
+    private Vector3 CalculateKnockback()
+    {
+        if (knockbackTimeWeight > 0f)
+        {
+            knockbackTimeWeight -= Time.fixedDeltaTime;
+        }
+        return knockbackVector * knockbackTimeWeight * (knockbackTimeWeight > 0f ? 1f : 0f);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject == player)
+        if (collision.gameObject == player)
         {
             Attack();
         }
@@ -84,9 +131,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        if(playerHealth == null)
+        if (playerHealth == null)
         {
-            playerHealth = player.GetComponent<PlayerManager>(); 
+            playerHealth = player.GetComponent<PlayerManager>();
         }
         playerHealth.TakeDamage(stats.damage);
     }
@@ -111,5 +158,23 @@ public class Enemy : MonoBehaviour, IDamageable
     internal void UpdateStatsForProgress(float progress)
     {
         stats.ApplyProgress(progress);
+    }
+    internal void InitSprite(GameObject animatedPrefabs)
+    {
+        GameObject spriteObject = Instantiate(animatedPrefabs);
+        spriteObject.transform.parent = transform;
+        spriteObject.transform.localPosition = Vector3.zero;
+    }
+
+    public void Stun(float stun)
+    {
+        stunned = stun;
+    }
+
+    public void Knockback(Vector3 vector, float force, float timeWeight)
+    {
+        knockbackVector = vector;
+        knockbackForce = force;
+        knockbackTimeWeight = timeWeight;
     }
 }
