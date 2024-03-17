@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785a0e0c6ca312f40bd8ae6774af15a9, type: 3}
-  m_Name: BigDemonData
+  m_Script: {fileID: 11500000, guid: 6288337dfc90bcb42bf4f47c4bbdb043, type: 3}
+  m_Name: Dwarf
   m_EditorClassIdentifier: 
-  enemyDataName: 
-  animatedPrefab: {fileID: 5397861299985646041, guid: f9495497aae2b334083e21e2b341db51, type: 3}
-  stats:
-    hp: 4
-    damage: 5
-    experience_reward: 400
-    speed: 0.2
+  Name: Dwarf
+  spritePrefab: {fileID: 0}
+  startingWeapon: {fileID: 11400000, guid: fb5d281b51a9080479e957720b45e5f5, type: 2}

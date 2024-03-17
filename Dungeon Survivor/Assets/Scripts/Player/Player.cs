@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float lastHorizontalDeCoupledVector;
     [HideInInspector]
-    public float lastVerticalDeCoupledVector; [HideInInspector]
+    public float lastVerticalDeCoupledVector; 
+    [HideInInspector]
     public float lastHorizontalCoupledVector;
     [HideInInspector]
     public float lastVerticalCoupledVector;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         movement = new Vector2();
     }

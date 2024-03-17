@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23583c76be0ac6344b7326d84d663d21, type: 3}
   m_Name: Cleaver
   m_EditorClassIdentifier: 
-  name: Cleaver
+  weaponName: 
   stats:
     damage: 7
-    timeToAttack: 2
+    timeToAttack: 1
     numberOfAttacks: 1
+    numberOfHits: 0
+    projectileSpeed: 0
+    stun: 2
+    knockback: 4
+    knockbackTimeWeight: 4
   weaponBasePrefab: {fileID: 2694033082418723950, guid: 3830f25a9bec1974d829a781af86b99c, type: 3}
   upgrades: []
