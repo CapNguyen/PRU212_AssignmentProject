@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     private bool isDead;
 
     [SerializeField] DataContainer dataContainer;
+    [SerializeField] CharacterData selectedCharacter;
 
     private void Awake()
     {
@@ -29,9 +30,21 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        LoadSelectedCharacter(selectedCharacter);
         ApplyPersistantUpgrades();
 
         playerHealth.SetStatus(currentHealth, maxHealth);
+    }
+
+    private void LoadSelectedCharacter(CharacterData selectedCharacter)
+    {
+        InitAnimation(selectedCharacter.spritePrefab);
+    }
+
+    private void InitAnimation(GameObject spritePrefab)
+    {
+        GameObject animObject= Instantiate(spritePrefab,transform);
+        GetComponent<Animate>().SetAnimate(animObject);
     }
 
     private void ApplyPersistantUpgrades()

@@ -123,6 +123,5 @@ public abstract class WeaponBase : MonoBehaviour
 
         return projectileGO;
     }
-    private void adjustProjectileDirection() { }
 
 }

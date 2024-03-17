@@ -9,20 +9,22 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float lastHorizontalDeCoupledVector;
     [HideInInspector]
-    public float lastVerticalDeCoupledVector; 
+    public float lastVerticalDeCoupledVector;
     [HideInInspector]
     public float lastHorizontalCoupledVector;
     [HideInInspector]
     public float lastVerticalCoupledVector;
     private float xInput;
 
-    private Animator anim;
+    //[SerializeField]
+    //private Animator animator;
     private Rigidbody2D rb;
 
+    Animate animate;
     private void Awake()
     {
-        anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        animate = GetComponent<Animate>();
         movement = new Vector2();
     }
     private void Start()
@@ -36,14 +38,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        AnimatorController();
+        //AnimatorController();
+        animate.xInput = xInput;
         MovementController();
     }
 
-    private void AnimatorController()
-    {
-        anim.SetFloat("xVelocity", xInput);
-    }
+    //private void AnimatorController()
+    //{
+    //    anim.SetFloat("xVelocity", xInput);
+    //}
 
     private void MovementController()
     {

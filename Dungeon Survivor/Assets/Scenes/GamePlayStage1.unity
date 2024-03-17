@@ -9612,6 +9612,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2552590745741063915, guid: c6cd10da518674d4285abde45d7a6eed, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6567791111250926190, guid: c6cd10da518674d4285abde45d7a6eed, type: 3}
       propertyPath: m_Name
       value: OldHouse
