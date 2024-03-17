@@ -27,7 +27,7 @@ public class EnemyStats
     }
 }
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour, IDamageable, IPoolMember
 {
     [SerializeField] private Transform playerTransform;
     private PlayerManager playerHealth;
@@ -43,21 +43,23 @@ public class Enemy : MonoBehaviour, IDamageable
     Vector3 knockbackVector;
     float knockbackForce;
     float knockbackTimeWeight;
+    PoolMember poolMember;
+
     private void Awake()
     {
         //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
     }
-    private void Start()
-    {
-        if (enemyData != null)
-        {
-            InitSprite(enemyData.animatedPrefab);
-            SetStats(enemyData.stats);
-            SetTarget(GameManager.instance.playerTranform.gameObject);
-        }
-    }
+    //private void Start()
+    //{
+    //    if (enemyData != null)
+    //    {
+    //        InitSprite(enemyData.animatedPrefab);
+    //        SetStats(enemyData.stats);
+    //        SetTarget(GameManager.instance.playerTranform.gameObject);
+    //    }
+    //}
 
     /*private void Update()
     {
@@ -144,8 +146,20 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if (stats.hp < 1)
         {
-            player.GetComponent<Level>().AddExperience(stats.experience_reward);
-            GetComponent<DropOnDestroy>().CheckDrop();
+            Defeated();
+        }
+    }
+
+    private void Defeated()
+    {
+        player.GetComponent<Level>().AddExperience(stats.experience_reward);
+        GetComponent<DropOnDestroy>().CheckDrop();
+        if (poolMember != null)
+        {
+            poolMember.ReturnToPool();
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }
@@ -159,12 +173,12 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         stats.ApplyProgress(progress);
     }
-    internal void InitSprite(GameObject animatedPrefabs)
-    {
-        GameObject spriteObject = Instantiate(animatedPrefabs);
-        spriteObject.transform.parent = transform;
-        spriteObject.transform.localPosition = Vector3.zero;
-    }
+    //internal void InitSprite(GameObject animatedPrefabs)
+    //{
+    //    GameObject spriteObject = Instantiate(animatedPrefabs);
+    //    spriteObject.transform.parent = transform;
+    //    spriteObject.transform.localPosition = Vector3.zero;
+    //}
 
     public void Stun(float stun)
     {
@@ -176,5 +190,10 @@ public class Enemy : MonoBehaviour, IDamageable
         knockbackVector = vector;
         knockbackForce = force;
         knockbackTimeWeight = timeWeight;
+    }
+
+    public void SetPoolMember(PoolMember poolMember)
+    {
+        this.poolMember = poolMember;
     }
 }

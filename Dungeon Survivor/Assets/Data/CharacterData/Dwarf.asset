@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dwarf
   m_EditorClassIdentifier: 
   Name: Dwarf
-  spritePrefab: {fileID: 0}
+  spritePrefab: {fileID: 6404875394348620642, guid: 8f9da20e4c7e4124a962addb5c008371, type: 3}
   startingWeapon: {fileID: 11400000, guid: fb5d281b51a9080479e957720b45e5f5, type: 2}

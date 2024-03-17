@@ -20,7 +20,6 @@ public class PlayerManager : MonoBehaviour
     private bool isDead;
 
     [SerializeField] DataContainer dataContainer;
-    [SerializeField] CharacterData selectedCharacter;
 
     private void Awake()
     {
@@ -30,7 +29,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        LoadSelectedCharacter(selectedCharacter);
+        LoadSelectedCharacter(dataContainer.selectedCharacter);
+
         ApplyPersistantUpgrades();
 
         playerHealth.SetStatus(currentHealth, maxHealth);
@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     private void LoadSelectedCharacter(CharacterData selectedCharacter)
     {
         InitAnimation(selectedCharacter.spritePrefab);
+        GetComponent<WeaponManager>().AddWeapon(selectedCharacter.startingWeapon);
     }
 
     private void InitAnimation(GameObject spritePrefab)

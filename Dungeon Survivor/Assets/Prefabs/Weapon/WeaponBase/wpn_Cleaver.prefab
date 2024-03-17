@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: fb5d281b51a9080479e957720b45e5f5, type: 2}
   weaponStats:
     damage: 0
     timeToAttack: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
     knockbackTimeWeight: 0
   vectorOfAttack: {x: 0, y: 0}
   attackDirection: 0
-  leftAtk: {fileID: 0}
-  rightAtk: {fileID: 0}
+  leftAtk: {fileID: 2247886225816223645}
+  rightAtk: {fileID: 3741410400658469627}
   attackSize: {x: 2, y: 2}
 --- !u!1 &3741410400658469627
 GameObject:

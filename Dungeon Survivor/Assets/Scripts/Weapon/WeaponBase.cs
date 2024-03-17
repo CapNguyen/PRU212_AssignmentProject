@@ -21,6 +21,8 @@ public abstract class WeaponBase : MonoBehaviour
     PlayerManager playerManager;
     public Vector2 vectorOfAttack;
     [SerializeField] AttackDirection attackDirection;
+    PoolManager poolManager;
+
     public void Update()
     {
         timer -= Time.deltaTime;
@@ -40,6 +42,10 @@ public abstract class WeaponBase : MonoBehaviour
         weaponData = wd;
 
         weaponStats = new WeaponStats(wd.stats);
+    }
+    public void SetPoolManager(PoolManager poolManager)
+    {
+        this.poolManager = poolManager;
     }
     public abstract void Attack();
     public void ApplyDamage(Collider2D[] hit)
@@ -65,7 +71,7 @@ public abstract class WeaponBase : MonoBehaviour
     private void ApplyAdditionalEffects(IDamageable enemy, Vector3 enemyPosition)
     {
         enemy.Stun(weaponStats.stun);
-        enemy.Knockback((enemyPosition - transform.position).normalized, weaponStats.knockback,weaponStats.knockbackTimeWeight);
+        enemy.Knockback((enemyPosition - transform.position).normalized, weaponStats.knockback, weaponStats.knockbackTimeWeight);
     }
 
     public int GetDamage()
@@ -112,12 +118,12 @@ public abstract class WeaponBase : MonoBehaviour
         }
         vectorOfAttack = vectorOfAttack.normalized;
     }
-    public GameObject SpawnProjectile(GameObject projectilePrefab, Vector3 position)
+    public GameObject SpawnProjectile(PoolObjectData poolObjectData, Vector3 position)
     {
-        GameObject projectileGO = Instantiate(projectilePrefab);
+        GameObject projectileGO = poolManager.GetObject(poolObjectData);
         projectileGO.transform.position = position;
 
-        ProjectTile projectile = projectileGO.GetComponent<ProjectTile>();
+        Projectile projectile = projectileGO.GetComponent<Projectile>();
         projectile.setDirection(vectorOfAttack.x, vectorOfAttack.y);
         projectile.SetStats(this);
 

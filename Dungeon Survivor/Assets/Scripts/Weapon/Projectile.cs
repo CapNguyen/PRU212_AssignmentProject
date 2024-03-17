@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectTile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPoolMember
 {
+    PoolMember poolMember;
+
     WeaponBase weapon;
-    
+
     public float attackArea = 0.7f;
     Vector3 direction;
     float speed;
@@ -15,7 +17,7 @@ public class ProjectTile : MonoBehaviour
 
     List<IDamageable> enemiesHit;
 
-    float timeToDelete = 2f;
+    float timeToLive = 2f;
 
     public void setDirection(float dir_x, float dir_y)
     {
@@ -42,10 +44,22 @@ public class ProjectTile : MonoBehaviour
 
     private void TimerToLive()
     {
-        timeToDelete -= Time.deltaTime;
-        if (timeToDelete < 0)
+        timeToLive -= Time.deltaTime;
+        if (timeToLive < 0)
+        {
+            DestroyProjectile();
+        }
+    }
+
+    private void DestroyProjectile()
+    {
+        if (poolMember == null)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            poolMember.ReturnToPool();
         }
     }
 
@@ -71,7 +85,7 @@ public class ProjectTile : MonoBehaviour
         }
         if (numOfHits <= 0)
         {
-            Destroy(gameObject);
+            DestroyProjectile();
         }
     }
 
@@ -96,9 +110,18 @@ public class ProjectTile : MonoBehaviour
 
     public void SetStats(WeaponBase weaponBase)
     {
-        weapon= weaponBase;
+        weapon = weaponBase;
         dmg = weaponBase.GetDamage();
         numOfHits = weaponBase.weaponStats.numberOfHits;
         speed = weaponBase.weaponStats.projectileSpeed;
+    }
+    private void OnEnable()
+    {
+        timeToLive = 6f;
+    }
+
+    public void SetPoolMember(PoolMember poolMember)
+    {
+        this.poolMember = poolMember;
     }
 }

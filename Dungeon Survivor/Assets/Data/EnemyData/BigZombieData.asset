@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785a0e0c6ca312f40bd8ae6774af15a9, type: 3}
   m_Name: BigZombieData
   m_EditorClassIdentifier: 
-  name: BigZombie
-  animatedPrefab: {fileID: 3195937832473570100, guid: 796f1046c0931eb47a1ebd173f559a57, type: 3}
+  enemyDataName: 
+  poolObjectData: {fileID: 11400000, guid: 38d19d0c2f163544481503e7b157a10d, type: 2}
   stats:
     hp: 20
-    damage: 5
+    damage: 8
     experience_reward: 800
-    speed: 1
+    speed: 5

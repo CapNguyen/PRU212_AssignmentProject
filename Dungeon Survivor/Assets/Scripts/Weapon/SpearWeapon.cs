@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpearWeapon : WeaponBase
 {
-    [SerializeField] GameObject spearPrefab;
+    [SerializeField] PoolObjectData spearPrefab;
 
     public override void Attack()
     {

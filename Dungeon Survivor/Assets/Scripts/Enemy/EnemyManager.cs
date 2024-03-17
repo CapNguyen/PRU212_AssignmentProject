@@ -29,8 +29,8 @@ public class EnemyManager : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] StageProgress stageProgress;
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Vector2 spawnArea;
+    [SerializeField] PoolManager poolManager;
+    [SerializeField] Vector2 spawnArea;
 
     List<Enemy> bossEnemiesList;
     int totalBossHealth;
@@ -144,7 +144,7 @@ public class EnemyManager : MonoBehaviour
         spawnPosition += player.transform.position;
 
         //spawning main object
-        GameObject enemySpawn = Instantiate(enemyPrefab);
+        GameObject enemySpawn = poolManager.GetObject(enemyToSpawn.poolObjectData);
         enemySpawn.transform.position = spawnPosition;
 
         enemySpawn.GetComponent<Enemy>().SetTarget(player);
@@ -159,8 +159,8 @@ public class EnemyManager : MonoBehaviour
         enemySpawn.transform.parent = transform;
 
         //spawning sprite
-        enemySpawn.GetComponent<Enemy>().InitSprite(enemyToSpawn.animatedPrefab);
-        
+        //enemySpawn.GetComponent<Enemy>().InitSprite(enemyToSpawn.animatedPrefab);
+
     }
 
     private void SpawnBossEnemy(Enemy newBoss)

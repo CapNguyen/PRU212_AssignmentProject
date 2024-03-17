@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Spear
   stats:
-    damage: 1
+    damage: 100
     timeToAttack: 1
     numberOfAttacks: 3
-    numberOfHits: 1
+    numberOfHits: 3
     projectileSpeed: 10
     stun: 2
     knockback: 0

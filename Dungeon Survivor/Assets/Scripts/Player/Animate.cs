@@ -6,7 +6,6 @@ using UnityEngine.Windows;
 public class Animate : MonoBehaviour
 {
     Animator animator;
-    public float horizontal;
     [HideInInspector]
     public float xInput;
 

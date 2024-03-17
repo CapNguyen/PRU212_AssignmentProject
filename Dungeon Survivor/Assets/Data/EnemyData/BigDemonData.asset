@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BigDemonData
   m_EditorClassIdentifier: 
   enemyDataName: 
-  animatedPrefab: {fileID: 5397861299985646041, guid: f9495497aae2b334083e21e2b341db51, type: 3}
+  poolObjectData: {fileID: 11400000, guid: 559d73be3d0d12342afc623726be3eae, type: 2}
   stats:
     hp: 4
     damage: 5
     experience_reward: 400
-    speed: 0.2
+    speed: 3
