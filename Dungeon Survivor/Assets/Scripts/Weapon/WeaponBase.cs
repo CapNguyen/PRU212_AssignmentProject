@@ -12,12 +12,11 @@ public enum AttackDirection
 }
 public abstract class WeaponBase : MonoBehaviour
 {
-    public Player player;
     public WeaponData weaponData;
     public WeaponStats weaponStats;
     float timer;
 
-    Player playerMovement;
+    public Player playerMovement;
     PlayerManager playerManager;
     public Vector2 vectorOfAttack;
     [SerializeField] AttackDirection attackDirection;

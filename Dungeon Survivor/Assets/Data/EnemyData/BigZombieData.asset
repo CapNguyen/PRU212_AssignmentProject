@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyDataName: 
   poolObjectData: {fileID: 11400000, guid: 38d19d0c2f163544481503e7b157a10d, type: 2}
   stats:
-    hp: 20
+    hp: 15
     damage: 8
-    experience_reward: 800
+    experience_reward: 50
     speed: 5

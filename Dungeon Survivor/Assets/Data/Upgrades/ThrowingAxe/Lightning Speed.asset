@@ -16,13 +16,13 @@ MonoBehaviour:
   upgradeName: Lightning Speed
   upgradeDecription: Faster Projectile
   icon: {fileID: 21300000, guid: 5d8142fcbb194d94fbe7aed612695e0f, type: 3}
-  weaponData: {fileID: 11400000, guid: a4aa5b9c2be1c284a9a7cecc499e303a, type: 2}
+  weaponData: {fileID: 11400000, guid: 9a0da96659746544a8e486278245894b, type: 2}
   weaponUpgradeStats:
     damage: 0
     timeToAttack: 0
     numberOfAttacks: 0
     numberOfHits: 0
-    projectileSpeed: 5
+    projectileSpeed: 10
     stun: 0
     knockback: 0
     knockbackTimeWeight: 0

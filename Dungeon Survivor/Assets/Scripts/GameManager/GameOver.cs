@@ -8,7 +8,6 @@ public class GameOver : MonoBehaviour
 	[SerializeField] GameObject weaponParent;
 	public void PlayerGameOver()
     {
-        Debug.Log("Game over");
         GetComponent<Player>().enabled = false;
         gameOverPanel.SetActive(true);
 		weaponParent.SetActive(false);

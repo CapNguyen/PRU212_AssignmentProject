@@ -7,17 +7,18 @@ public class PlayerWinManager : MonoBehaviour
     [SerializeField] GameObject winMessagePanel;
     PauseManager pauseManager;
     [SerializeField] DataContainer dataContainer;
-
+    [SerializeField] StageUnlockConditionList conditionList;
     private void Start()
     {
         {
             pauseManager = GetComponent<PauseManager>();
         }
     }
-    public void Win(int stageId)
+    public void Win(string stageId)
     {
         winMessagePanel.SetActive(true);
         pauseManager.PauseGame();
-        dataContainer.StageComplete(stageId);
+        StageUnlockCondition f = conditionList.GetCondition(stageId);
+        f.state = (f != null);
     }
 }

@@ -50,7 +50,6 @@ public class StageEventManager : MonoBehaviour
                     LoseStage();
                     break;
             }
-            Debug.Log(stageData.stageEvents[eventIndexer].message);
             eventIndexer += 1;
         }
     }

@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: 0.7
-  dmg: 5
+  dmg: 10

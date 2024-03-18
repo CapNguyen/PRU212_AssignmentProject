@@ -94,4 +94,6 @@ MonoBehaviour:
     isRepeatedEvent: 0
     repeatEverySecond: 0
     repeatCount: 0
-  stageId: 1
+  stageId: Level 2 Complete
+  stageCompletionToUnlock:
+  - Level 1 Complete

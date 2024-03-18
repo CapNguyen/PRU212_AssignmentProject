@@ -6,7 +6,6 @@ using UnityEngine;
 public class ThrowingAxeWeapon : WeaponBase
 {
     [SerializeField] PoolObjectData axePrefab;
-    [SerializeField] float spread = 0.5f;
 
     public override void Attack()
     {
@@ -15,14 +14,8 @@ public class ThrowingAxeWeapon : WeaponBase
         {
             Vector3 axePos = transform.position;
 
-            if (weaponStats.numberOfAttacks > 1)
-            {
-                axePos.y -= (spread * weaponStats.numberOfAttacks - 1) / 2; //calculating offset
-                axePos.y += (i * spread); //spreading axe along line
-            }
-
             SpawnProjectile(axePrefab, axePos);
         }
-        
+
     }
 }

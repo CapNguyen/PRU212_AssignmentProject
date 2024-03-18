@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Stage 1 Data Test
   m_EditorClassIdentifier: 
   stageEvents:
-  - eventType: 3
-    time: 8.706768e+18
-    message: You Won
-    enemyToSpawn: {fileID: 0}
+  - eventType: 0
+    time: 1
+    message: 
+    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
-    count: 0
-    isRepeatedEvent: 0
-    repeatEverySecond: 0
-    repeatCount: 0
-  stageId: 0
+    count: 1
+    isRepeatedEvent: 1
+    repeatEverySecond: 1
+    repeatCount: 2
+  stageId: Level 1 Complete
+  stageCompletionToUnlock: []

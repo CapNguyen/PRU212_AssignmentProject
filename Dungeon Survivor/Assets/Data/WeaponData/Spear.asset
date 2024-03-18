@@ -14,13 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Spear
   stats:
-    damage: 100
-    timeToAttack: 1
+    damage: 5
+    timeToAttack: 0.5
     numberOfAttacks: 3
-    numberOfHits: 3
+    numberOfHits: 1
     projectileSpeed: 10
     stun: 2
-    knockback: 0
-    knockbackTimeWeight: 0
+    knockback: 3
+    knockbackTimeWeight: 3
   weaponBasePrefab: {fileID: 2694033082418723950, guid: cb84381f82d8a004c8860c36f92538bf, type: 3}
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: 4e13c82d0e1d3654388b1fea4233f730, type: 2}
+  - {fileID: 11400000, guid: 5fbc9af50b4b0f148b60d5853a3c5ea8, type: 2}
+  - {fileID: 11400000, guid: 6692054bd5aec9f46b24417f2136a4a5, type: 2}
+  - {fileID: 11400000, guid: a507a0e3cb3c2754da8f0e120e91724b, type: 2}
+  - {fileID: 11400000, guid: b2f6ed25b32fdf54a907cd3d07a34bc3, type: 2}
+  - {fileID: 11400000, guid: 742458857a042b44f87e1e745553a40b, type: 2}
+  - {fileID: 11400000, guid: c6ac0264a1ad9d7458f06ddf7e262ec0, type: 2}

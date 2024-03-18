@@ -52,18 +52,14 @@ public class EnemyManager : MonoBehaviour
         ProcessSpawn();
         ProcessRepeatedSpawnGroups();
         UpdateBossHealth();
-        //timer -= Time.deltaTime;
-        //if (timer < 0)
-        //{
-        //    timer = spawnCooldown;
-        //    //SpawnEnemy(enemyToSpawn);
-        //}
     }
 
     private void ProcessRepeatedSpawnGroups()
     {
         if (repeatedSpawnGroupList == null) { return; }
-        for (int i = repeatedSpawnGroupList.Count - 1; i >= 0; i--)
+        int count = repeatedSpawnGroupList.Count;
+        List<EnemiesSpawnGroup> list = repeatedSpawnGroupList;
+        for (int i = count - 1; i >= 0; i--)
         {
             repeatedSpawnGroupList[i].repeatTimer -= Time.deltaTime;
             if (repeatedSpawnGroupList[i].repeatTimer < 0)
@@ -74,6 +70,11 @@ public class EnemyManager : MonoBehaviour
                 if (repeatedSpawnGroupList[i].repeatCount <= 0)
                 {
                     repeatedSpawnGroupList.RemoveAt(i);
+                }
+                if (i == 0)
+                {
+                    repeatedSpawnGroupList = list;
+                    count = repeatedSpawnGroupList.Count;
                 }
             }
         }

@@ -78,7 +78,6 @@ public class PlayerManager : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Debug.Log("Chet roi");
             GetComponent<GameOver>().PlayerGameOver();
             isDead = true;
         }

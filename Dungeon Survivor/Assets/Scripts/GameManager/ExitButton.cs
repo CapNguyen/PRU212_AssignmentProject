@@ -6,7 +6,6 @@ public class ExitButton : MonoBehaviour
 {
     public void QuitApplication()
     {
-        Debug.Log("Rage quit wtf?");
         Application.Quit();
     }
 }

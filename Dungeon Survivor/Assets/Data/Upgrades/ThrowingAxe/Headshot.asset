@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeName: Headshot
   upgradeDecription: Stunned enemy longer
   icon: {fileID: 21300000, guid: 6c2c4969cd643ed42b5b9e468e3a1a99, type: 3}
-  weaponData: {fileID: 11400000, guid: a4aa5b9c2be1c284a9a7cecc499e303a, type: 2}
+  weaponData: {fileID: 11400000, guid: 9a0da96659746544a8e486278245894b, type: 2}
   weaponUpgradeStats:
     damage: 0
     timeToAttack: 0

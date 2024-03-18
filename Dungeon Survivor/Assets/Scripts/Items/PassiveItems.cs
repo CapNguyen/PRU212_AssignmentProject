@@ -31,10 +31,6 @@ public class PassiveItems : MonoBehaviour
         newItemInstance.Equip(playerManager);
     }
 
-    public void UnEquip(Item itemToUnEquip)
-    {
-
-    }
 
     internal void UpgradeItem(UpgradeData upgradeData)
     {

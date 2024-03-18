@@ -31,15 +31,6 @@ MonoBehaviour:
     isRepeatedEvent: 1
     repeatEverySecond: 0
     repeatCount: 1
-  - eventType: 4
-    time: 7
-    message: You Lose
-    enemyToSpawn: {fileID: 0}
-    objectToSpawn: {fileID: 0}
-    count: 0
-    isRepeatedEvent: 0
-    repeatEverySecond: 0
-    repeatCount: 0
   - eventType: 0
     time: 10
     message: 
@@ -51,7 +42,7 @@ MonoBehaviour:
     repeatCount: 1
   - eventType: 0
     time: 15
-    message: Boss
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
     count: 25
@@ -67,9 +58,9 @@ MonoBehaviour:
     isRepeatedEvent: 1
     repeatEverySecond: 0
     repeatCount: 1
-  - eventType: 1
+  - eventType: 0
     time: 25
-    message: Boss
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
     count: 35
@@ -87,7 +78,7 @@ MonoBehaviour:
     repeatCount: 1
   - eventType: 0
     time: 35
-    message: Boss
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
     count: 45
@@ -103,4 +94,5 @@ MonoBehaviour:
     isRepeatedEvent: 0
     repeatEverySecond: 0
     repeatCount: 0
-  stageId: 0
+  stageId: Level 1 Complete
+  stageCompletionToUnlock: []

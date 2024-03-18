@@ -24,15 +24,10 @@ public class DataContainer : ScriptableObject
 {
     public int coins;
 
-    public List<bool> stageCompletion;
 
     public List<PlayerUpgrades> upgrades;
 
     public CharacterData selectedCharacter;
-    public void StageComplete(int i)
-    {
-        stageCompletion[i] = true;
-    }
 
     public int GetUpgradeLevel(PlayerPersistentUpgrades persistentUpgrade)
     {

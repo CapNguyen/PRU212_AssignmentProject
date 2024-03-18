@@ -13,85 +13,24 @@ MonoBehaviour:
   m_Name: Stage 3 Data
   m_EditorClassIdentifier: 
   stageEvents:
-  - eventType: 1
+  - eventType: 0
     time: 1
     message: 
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
+    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
-    count: 15
+    count: 50
     isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
+    repeatEverySecond: 2
+    repeatCount: 2147483647
   - eventType: 1
-    time: 5
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 15
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 1
-    time: 10
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 20
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 1
-    time: 15
-    message: Boss
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 25
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
-    repeatCount: 10
-  - eventType: 1
-    time: 20
+    time: 2
     message: 
     enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
     objectToSpawn: {fileID: 0}
     count: 30
     isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 1
-    time: 25
-    message: Boss
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 35
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
-    repeatCount: 10
-  - eventType: 1
-    time: 30
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 40
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 1
-    time: 35
-    message: Boss
-    enemyToSpawn: {fileID: 11400000, guid: 8f43fba03224b0146a16b720311bc5a0, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 45
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
-    repeatCount: 10
-  - eventType: 3
-    time: 80
-    message: You Won
-    enemyToSpawn: {fileID: 0}
-    objectToSpawn: {fileID: 0}
-    count: 0
-    isRepeatedEvent: 0
-    repeatEverySecond: 0
-    repeatCount: 0
-  stageId: 2
+    repeatEverySecond: 5
+    repeatCount: 2147483647
+  stageId: Level 3 Complete
+  stageCompletionToUnlock:
+  - Level 2 Complete

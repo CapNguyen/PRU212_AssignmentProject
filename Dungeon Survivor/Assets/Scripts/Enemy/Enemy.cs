@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour, IDamageable, IPoolMember
     private GameObject player;
     //private Animator anim;
     private Rigidbody2D rb;
-    private bool isFacingRight;
 
     public EnemyStats stats;
     [SerializeField] EnemyData enemyData;
@@ -47,42 +46,14 @@ public class Enemy : MonoBehaviour, IDamageable, IPoolMember
 
     private void Awake()
     {
-        //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
     }
-    //private void Start()
-    //{
-    //    if (enemyData != null)
-    //    {
-    //        InitSprite(enemyData.animatedPrefab);
-    //        SetStats(enemyData.stats);
-    //        SetTarget(GameManager.instance.playerTranform.gameObject);
-    //    }
-    //}
-
-    /*private void Update()
-    {
-        anim.SetFloat("xVelocity", rb.velocity.x);
-        if(transform.position.x < playerTransform.position.x && isFacingRight)
-        {
-            Flip();
-        }else if(transform.position.x > playerTransform.position.x && !isFacingRight)
-        {
-            Flip();
-        }
-    }*/
 
     public void SetTarget(GameObject _player)
     {
         this.player = _player;
         this.playerTransform = _player.transform;
-    }
-
-    private void Flip()
-    {
-        transform.Rotate(0, 180, 0);
-        isFacingRight = !isFacingRight;
     }
 
     private void FixedUpdate()
