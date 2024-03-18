@@ -31,4 +31,5 @@ public class StageEvent
 public class StageData : ScriptableObject
 {
     public List<StageEvent> stageEvents;
+    public int stageId;
 }

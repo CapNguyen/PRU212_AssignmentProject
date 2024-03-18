@@ -52,7 +52,7 @@ public class StageEventManager : MonoBehaviour
 
     private void WinStage()
     {
-        FindObjectOfType<PlayerWinManager>().Win();
+        playerWin.Win(stageData.stageId);
     }
 
     private void SpawnEnemy(bool bossEnemy)
