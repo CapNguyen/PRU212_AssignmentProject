@@ -11,6 +11,7 @@ public class StageEventManager : MonoBehaviour
     StageTime stageTime;
     int eventIndexer;
     PlayerWinManager playerWin;
+    PlayerLoseManager playerLose;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class StageEventManager : MonoBehaviour
     private void Start()
     {
         playerWin = FindObjectOfType<PlayerWinManager>();
+        playerLose = FindObjectOfType<PlayerLoseManager>();
         enemyManager = FindObjectOfType<EnemyManager>();
     }
     private void Update()
@@ -44,6 +46,9 @@ public class StageEventManager : MonoBehaviour
                 case StageEventType.SpawnEnemyBoss:
                     SpawnEnemy(true);
                     break;
+                case StageEventType.LoseStage:
+                    LoseStage();
+                    break;
             }
             Debug.Log(stageData.stageEvents[eventIndexer].message);
             eventIndexer += 1;
@@ -54,8 +59,12 @@ public class StageEventManager : MonoBehaviour
     {
         playerWin.Win(stageData.stageId);
     }
+	private void LoseStage()
+	{
+		playerLose.Lose();
+	}
 
-    private void SpawnEnemy(bool bossEnemy)
+	private void SpawnEnemy(bool bossEnemy)
     {
         StageEvent currentEvent = stageData.stageEvents[eventIndexer];
         enemyManager.AddGroupToSpawn(currentEvent.enemyToSpawn, currentEvent.count, bossEnemy);

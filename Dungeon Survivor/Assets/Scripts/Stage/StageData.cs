@@ -8,7 +8,8 @@ public enum StageEventType
     SpawnEnemy,
     SpawnEnemyBoss,
     SpawnObject,
-    WinStage
+    WinStage,
+    LoseStage
 }
 
 [Serializable]

@@ -3972,6 +3972,7 @@ GameObject:
   - component: {fileID: 1260516605}
   - component: {fileID: 1260516606}
   - component: {fileID: 1260516607}
+  - component: {fileID: 1260516608}
   m_Layer: 0
   m_Name: -----GameManager-----
   m_TagString: Untagged
@@ -4064,6 +4065,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMessagePanel: {fileID: 740107854}
   dataContainer: {fileID: 11400000, guid: a62854ae0e7f777499812684cc8d1dec, type: 2}
+--- !u!114 &1260516608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260516601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60588cf375313d84da10af66ca10bdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 1874599293}
 --- !u!1 &1371711470
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,4 +31,13 @@ MonoBehaviour:
     isRepeatedEvent: 0
     repeatEverySecond: 0
     repeatCount: 0
+  - eventType: 4
+    time: 5
+    message: You Lose
+    enemyToSpawn: {fileID: 0}
+    objectToSpawn: {fileID: 0}
+    count: 0
+    isRepeatedEvent: 0
+    repeatEverySecond: 0
+    repeatCount: 0
   stageId: 0
