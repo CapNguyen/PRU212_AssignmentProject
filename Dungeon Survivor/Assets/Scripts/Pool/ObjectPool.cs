@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    PoolObjectData originalPoolData;
-    List<GameObject> pool;
+    public PoolObjectData originalPoolData;
+    public List<GameObject> pool;
     public void Set(PoolObjectData pod)
     {
         pool = new List<GameObject>();

@@ -18,76 +18,13 @@ MonoBehaviour:
     message: 
     enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
     objectToSpawn: {fileID: 0}
-    count: 15
+    count: 2
     isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 0
-    time: 5
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 15
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 0
-    time: 10
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 20
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 0
-    time: 15
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 25
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
+    repeatEverySecond: 1
     repeatCount: 10
-  - eventType: 0
-    time: 20
+  - eventType: 4
+    time: 100
     message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 30
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 0
-    time: 25
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 35
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
-    repeatCount: 10
-  - eventType: 0
-    time: 30
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 40
-    isRepeatedEvent: 1
-    repeatEverySecond: 0
-    repeatCount: 1
-  - eventType: 0
-    time: 35
-    message: 
-    enemyToSpawn: {fileID: 11400000, guid: 049fb92b7bdf58e4daaa7757ba15139f, type: 2}
-    objectToSpawn: {fileID: 0}
-    count: 45
-    isRepeatedEvent: 0
-    repeatEverySecond: 10
-    repeatCount: 10
-  - eventType: 3
-    time: 60
-    message: You Won
     enemyToSpawn: {fileID: 0}
     objectToSpawn: {fileID: 0}
     count: 0

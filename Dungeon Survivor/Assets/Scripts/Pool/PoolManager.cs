@@ -6,7 +6,7 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
     [SerializeField] GameObject poolPrefab;
-    Dictionary<int, ObjectPool> poolList;
+    public Dictionary<int, ObjectPool> poolList;
     private void Awake()
     {
         poolList = new Dictionary<int, ObjectPool>();
@@ -30,5 +30,20 @@ public class PoolManager : MonoBehaviour
             CreatePool(poolObjectData);
         }
         return poolList[poolObjectData.poolId].GetObject();
+    }
+    public bool checkWinning(Dictionary<int, ObjectPool> poolList)
+    {
+        bool isWin = false;
+        foreach (KeyValuePair<int, ObjectPool> pair in poolList)
+        {
+            if (pair.Value != null)
+            {
+                if (pair.Value.pool.Count == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return isWin;
     }
 }

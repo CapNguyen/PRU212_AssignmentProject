@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] StageProgress stageProgress;
-    [SerializeField] PoolManager poolManager;
+    [SerializeField] public PoolManager poolManager;
     [SerializeField] Vector2 spawnArea;
 
     List<Enemy> bossEnemiesList;
@@ -61,7 +61,8 @@ public class EnemyManager : MonoBehaviour
         List<EnemiesSpawnGroup> list = repeatedSpawnGroupList;
         for (int i = count - 1; i >= 0; i--)
         {
-            repeatedSpawnGroupList[i].repeatTimer -= Time.deltaTime;
+            repeatedSpawnGroupList[i].repeatTimer -= Time.deltaTime * 0.5f;
+            Debug.Log(repeatedSpawnGroupList[i].repeatTimer);
             if (repeatedSpawnGroupList[i].repeatTimer < 0)
             {
                 repeatedSpawnGroupList[i].repeatTimer = repeatedSpawnGroupList[i].timeBetweenSpawn;

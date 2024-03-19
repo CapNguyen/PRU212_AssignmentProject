@@ -47,7 +47,7 @@ public class StageEventManager : MonoBehaviour
                     SpawnEnemy(true);
                     break;
                 case StageEventType.LoseStage:
-                    LoseStage();
+                    LoseStage(stageData.stageEvents[eventIndexer].eventType);
                     break;
             }
             eventIndexer += 1;
@@ -58,12 +58,21 @@ public class StageEventManager : MonoBehaviour
     {
         playerWin.Win(stageData.stageId);
     }
-	private void LoseStage()
-	{
-		playerLose.Lose();
-	}
+    private void LoseStage(StageEventType stageEventType)
+    {
+        if (enemyManager.poolManager.checkWinning(enemyManager.poolManager.poolList))
+        {
+            stageEventType = StageEventType.WinStage;
+            WinStage();
+        }
+        else
+        {
+            playerLose.Lose();
+        }
+        //playerLose.Lose();
+    }
 
-	private void SpawnEnemy(bool bossEnemy)
+    private void SpawnEnemy(bool bossEnemy)
     {
         StageEvent currentEvent = stageData.stageEvents[eventIndexer];
         enemyManager.AddGroupToSpawn(currentEvent.enemyToSpawn, currentEvent.count, bossEnemy);
